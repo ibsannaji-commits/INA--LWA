@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INA-LWA Page-by-Page Build Specification</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--primary:#0B1B3A;--secondary:#2457D6;--accent:#C9A227;--success:#1E9E5A;--danger:#D64545;--bg:#F5F7FB;--card:#fff;--text:#0B1B3A;--muted:#5B6783;--line:#DCE2EE;--r:12px;--s:16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}}
+:root[data-theme="dark"]{--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,Inter,system-ui,sans-serif}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 8px}h1{font-size:clamp(32px,6vw,56px);font-weight:800}h2{font-size:clamp(26px,4vw,38px);font-weight:800}h3{font-size:22px}h4{font-size:18px}
+p{margin:0 0 var(--s);max-width:70ch}small{font-size:14px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--primary);color:#fff;display:flex;align-items:center;gap:var(--s);padding:12px var(--s)}
+header.top b span{color:var(--accent)}
+nav{display:flex;gap:var(--s);overflow-x:auto;flex:1;white-space:nowrap}nav a{color:#cfd8ee;text-decoration:none;font-size:14px}
+.theme{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:var(--primary);color:#fff;padding:64px var(--s)}.hero div{max-width:1100px;margin:auto}.hero p{color:#cfd8ee;font-size:18px}.gold{color:var(--accent)}
+section{max-width:1100px;margin:auto;padding:56px var(--s);border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:var(--s);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s)}
+.card ul,.card ol{margin:0;padding-left:18px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:var(--s)}.flow span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:14px}.flow i{color:var(--accent);font-style:normal}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:420px}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px;vertical-align:top}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);padding:1px 6px;border-radius:4px}
+label{display:block;font-weight:600;font-size:14px;margin:8px 0 4px}
+input,select{width:100%;padding:10px;border:2px solid var(--line);border-radius:6px;background:var(--card);color:var(--text);font:inherit}
+input[type=search]{max-width:420px;margin-bottom:var(--s)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:var(--s)}.chips button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:99px;padding:4px 14px;cursor:pointer}.chips button[aria-pressed=true]{background:var(--secondary);color:#fff;border-color:var(--secondary)}
+.out{font-size:26px;font-weight:800;color:var(--success)}
+.note{border-left:4px solid var(--accent);padding:8px var(--s);background:var(--card);border-radius:6px;margin-bottom:var(--s)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--secondary),var(--accent))}
+footer{text-align:center;padding:32px var(--s);color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top"><b>INA<span>-LWA</span></b>
+<nav><a href="#pages">Page explorer</a><a href="#home">Home</a><a href="#learn">Learning</a><a href="#checkout">Checkout</a><a href="#dash">Dashboards</a><a href="#member">Membership</a><a href="#sys">System</a><a href="#sec">Security</a><a href="#next">Next</a></nav>
+<button class="theme" id="theme" aria-label="Theme">Auto</button></header>
+
+<div class="hero"><div>
+<p class="gold"><b>inalwa.com</b></p>
+<h1>Complete Website &amp; Platform Build Specification</h1>
+<p>Page by page: user flow, dashboards, buttons, forms and database workflow, so a developer can build the full website and LMS.</p>
+<p>Header: Home · Academy · Courses · Programs · Live Training · Membership · Instructors · Community · Career · Certificates · Corporate · Blog · About · Contact · 🔍 Search · 🌐 Language · Login · Get Started</p>
+</div></div>
+
+<section id="pages">
+<h2>Page explorer</h2>
+<label for="q">Search pages, routes, buttons, forms</label>
+<input id="q" type="search" placeholder="e.g. checkout, upload, verify">
+<div class="chips" id="chips"></div>
+<div id="list" class="grid"></div>
+<p style="margin-top:8px"><small id="cnt"></small></p>
+</section>
+
+<section id="home">
+<h2>Home page</h2>
+<p>A visitor should grasp three things fast: what INA-LWA is, what it teaches, how to start.</p>
+<div class="grid">
+<div class="card"><h4>1. Hero</h4><small>Headline "Learn. Build. Apply. Grow." Subheadline: practical education in Life, Wealth, Business, Digital Skills, Career and Personal Growth. Buttons: Explore Courses · Join INA-LWA · Start Learning Free.</small></div>
+<div class="card"><h4>2. What you can learn</h4><small><b>Life:</b> personal development, mindset, communication, leadership, relationships · <b>Wealth:</b> financial literacy, saving, investing, entrepreneurship · <b>Digital:</b> AI, marketing, content, e-commerce, websites · <b>Career:</b> CV, interview, freelancing, remote work · <b>Creator:</b> YouTube, TikTok, Facebook, branding.</small></div>
+<div class="card"><h4>3. Featured programs</h4><small>Card: image, title, instructor, level, duration, students, rating, price, [View Course]. Example: Financial Literacy &amp; Wealth Building, 699 ETB, [Enroll Now].</small></div>
+<div class="card"><h4>4. How it works</h4><div class="flow" style="margin:0"><span>01 Discover</span><i>›</i><span>02 Learn</span><i>›</i><span>03 Build</span><i>›</i><span>04 Apply</span><i>›</i><span>05 Grow</span></div></div>
+<div class="card"><h4>5. Social proof</h4><small>Learners, courses, instructors, certificates and corporate clients counters (10,000+ / 100+ / 50+ / 1,000+ / 50+). Replace with real data once available. Testimonials: photo, name, program, rating, quote.</small></div>
+<div class="card"><h4>6. Final CTA</h4><small>"Your Growth Starts Here." Buttons: Start Learning · Explore Programs.</small></div>
+</div>
+</section>
+
+<section id="learn">
+<h2>Course and learning flow</h2>
+<div class="grid">
+<div class="card"><h4>Course detail (/course/course-name)</h4><small>Title, short description, ⭐ 4.8, 1,250 students, 12 lessons, 4 hours, certificate included, instructor. Buttons: Enroll Now · Add to Wishlist · Share. Curriculum: Module 01 Introduction (Lessons 1–3) · Module 02 Foundations (Lessons 4–5, Quiz) · Module 03 Application (Lesson 6, Assignment) · Final Assessment. Some lessons can be locked.</small></div>
+<div class="card"><h4>Lesson player</h4><small>Course/lesson list beside video. Play/pause, progress, captions, speed, notes, resources. Buttons: Previous · Complete &amp; Continue. Protect video against download.</small></div>
+<div class="card"><h4>Lesson progress</h4>
+<label for="l1">Completed lessons</label><input id="l1" type="number" min="0" value="14">
+<label for="l2">Total lessons</label><input id="l2" type="number" min="1" value="20">
+<p style="margin:12px 0 4px"><span class="out" id="lp"></span></p><div class="bar"><i id="lb"></i></div>
+<small>Complete lesson → lesson_progress = completed → next lesson unlocks → course progress updates.</small></div>
+<div class="card"><h4>Quiz, assignment, final exam</h4><small>Quiz: question, options A–D, Submit Answer, e.g. 8/10, Pass: YES. Assignment: title, instructions, deadline, required file (PDF, DOCX, XLSX, image), Upload Assignment; instructor reviews, scores, gives feedback. Final exam: timer, pass score, attempt limit, randomization, auto-submit; pass mark 70%; retake only if policy allows.</small></div>
+<div class="card"><h4>Certificate center and /verify</h4><small>List: program, issue date, ID, status; buttons View · Verify · Share. Public verify: enter ID (<code>INA-LWA-2026-000001</code>) → Verify Certificate → ✓ VERIFIED with student, program, issued year, ID, status VALID.</small></div>
+</div>
+<h3 style="margin-top:24px">Enrollment flow</h3>
+<div class="flow"><span>Enroll Now</span><i>›</i><span>Free: confirm → course dashboard</span><i>›</i><span>Paid: checkout → payment → verification → enrollment → access</span></div>
+</section>
+
+<section id="checkout">
+<h2>Checkout and payment</h2>
+<div class="grid">
+<div class="card"><h4>Checkout page</h4>
+<label for="ck">Course price (ETB)</label><input id="ck" type="number" min="0" value="699">
+<label for="dc">Discount (ETB)</label><input id="dc" type="number" min="0" value="0">
+<label for="fe">Tax/fees if applicable (ETB)</label><input id="fe" type="number" min="0" value="0">
+<p style="margin-top:12px"><small>Total</small><br><span class="out" id="tt"></span></p>
+<small>Customer: full name, email, phone, country, payment method (Chapa, Telebirr, bank/payment methods the integration supports). Button: Pay &amp; Enroll.</small></div>
+<div class="card"><h4>Payment workflow</h4><div class="flow" style="margin:0"><span>Checkout</span><i>›</i><span>Create order</span><i>›</i><span>Gateway</span><i>›</i><span>Callback/Webhook</span><i>›</i><span>Server verification</span><i>›</i><span>Payment confirmed</span><i>›</i><span>Enrollment created</span><i>›</i><span>Access granted</span><i>›</i><span>Confirmation</span></div></div>
+</div>
+<div class="note" style="margin-top:16px">Don't trust the callback alone: verify payment on the server. Relationship: User → Order → Order items → Payment → Verification → Enrollment → Access. This prevents fraud and duplicate enrollment.</div>
+</section>
+
+<section id="dash">
+<h2>Dashboards</h2>
+<div class="grid">
+<div class="card"><h4>Student /dashboard</h4><small>Welcome, Ibsan 👋. Menu: Continue Learning, My Courses, Progress, Certificates, Assignments, Exams, Membership, Community, Career, Wishlist, Payments, Notifications, Settings, Support. Stats: enrolled 8, completed 3, certificates 3, learning hours 42, streak 12 days, points 1,850. My learning table: course, progress, last lesson, next lesson, certificate status; button Continue Learning.</small></div>
+<div class="card"><h4>Instructor</h4><small>Menu: Dashboard, My Courses, Create Course, Students, Assignments, Reviews, Earnings, Payouts, Analytics, Messages, Profile, Support. Stats: students 1,240, courses 8, revenue 450,000 ETB, rating 4.8, completion 78%.</small></div>
+<div class="card"><h4>Course creator (9 steps)</h4><small>Course info → Curriculum → Lessons → Quizzes → Assignments → Final exam → Pricing → Certificate settings → Submit for review. Status: Draft → Submitted → Under Review → Revision → Approved → Published.</small></div>
+<div class="card"><h4>Instructor earnings</h4><small>Gross sales, refunds, platform fee, affiliate commission, instructor share, pending, available, paid. Button: Request Payout. Consider a minimum payout threshold.</small></div>
+<div class="card"><h4>Corporate /corporate/dashboard</h4><small>Employees, training programs, enrollment, progress, assessment, certificates, reports, invoices, support. Per employee: invite, enroll, track, assess. Sample report: enrolled 85, completed 71, average score 82%, satisfaction 4.6/5, certificates 71, button Download Report.</small></div>
+<div class="card"><h4>Admin</h4><small>Menu: Overview, Users, Students, Instructors, Courses, Programs, Memberships, Orders, Payments, Certificates, Affiliates, Corporate, Community, Support, Reports, Settings, Audit Logs. Overview: revenue, orders, new/active students, memberships, courses, certificates, instructors, corporate clients; charts for revenue, enrollment, course performance, membership, instructors.</small></div>
+<div class="card"><h4>Admin tables</h4><small><b>Courses:</b> All, Draft, Pending Review, Published, Suspended, Archived; actions View, Edit, Approve, Reject, Suspend, Archive. <b>Payments:</b> order ID, customer, product, amount, method, status, date: 🟡 Pending, 🟢 Paid, 🔴 Failed, 🔵 Refunded, ⚠️ Under Review. <b>Certificates:</b> Issue, Verify, Revoke (with reason), Reissue, Search, Export.</small></div>
+</div>
+</section>
+
+<section id="member">
+<h2>Membership, community, career</h2>
+<div class="tbl"><table><tr><th>Feature</th><th>Free</th><th>Basic</th><th>Pro</th><th>Master</th></tr>
+<tr><td>Free content</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Premium courses</td><td>—</td><td>Limited</td><td>✓</td><td>✓</td></tr>
+<tr><td>Live training</td><td>—</td><td>Limited</td><td>✓</td><td>✓</td></tr>
+<tr><td>Community</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Mentorship</td><td>—</td><td>—</td><td>Limited</td><td>✓</td></tr>
+<tr><td>Career support</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Exclusive events</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr></table></div>
+<p style="margin-top:8px"><small>Buttons: Join Basic · Join Pro · Join Master. Member dashboard: plan (e.g. PRO), renewal date, benefits used, available courses, live events, community, mentorship, resources, certificates.</small></p>
+<div class="grid">
+<div class="card"><h4>Community /community</h4><small>Categories: General, Life, Wealth, Business, Digital, Career, Creator, Announcements. Posts, comments, reactions, questions, events, groups, moderation.</small></div>
+<div class="card"><h4>Career /career</h4><small>Profile (education, skills, certificates, projects, experience, portfolio). Opportunities: jobs, internships, freelance, remote work, business. Button: Build My Professional Profile.</small></div>
+<div class="card"><h4>Instructor pages</h4><small>/instructors cards: photo, name, specialization, rating, courses, students, experience. Profile: bio, qualifications, courses, reviews, links; View Courses. /become-instructor: "Teach. Build. Earn. Grow." Form: full name, email, phone, education, expertise, experience, course topic, portfolio, sample video, CV, LinkedIn/social, why teach. Button: Submit Application.</small></div>
+</div>
+</section>
+
+<section id="sys">
+<h2>System features</h2>
+<div class="grid">
+<div class="card"><h4>Notifications</h4><small><b>Student:</b> enrollment, payment, new lesson, graded assignment, exam result, certificate ready, renewal. <b>Instructor:</b> application received, course approved, new enrollment, student question, earnings available, payout processed. <b>Admin:</b> payment alert, refund request, instructor application, support escalation, security alert.</small></div>
+<div class="card"><h4>Email + SMS</h4><small>Critical transactions by email and optional SMS. SMS must be short.</small></div>
+<div class="card"><h4>Search</h4><small>Courses, instructors, programs, articles. Filters: category, level, price, language, certificate, rating.</small></div>
+<div class="card"><h4>Languages</h4><small>Phase 1: Afaan Oromoo + English. Phase 2: Amharic. Routes <code>/en</code> <code>/om</code> <code>/am</code> with localization files or a translation database.</small></div>
+<div class="card"><h4>Mobile</h4><small>Mobile first (Android, iPhone, tablet, desktop). Bottom navigation: Home, Learn, Community, Certificates, Profile.</small></div>
+<div class="card"><h4>App, phase 2</h4><small>Home, Courses, My Learning, Live, Community, Certificates, Career, Profile. Push: new lesson, live class, assignment, certificate, membership, offers.</small></div>
+</div>
+<h3 style="margin-top:24px">Final user flow</h3>
+<div class="flow"><span>Visitor</span><i>›</i><span>Home</span><i>›</i><span>Explore academy</span><i>›</i><span>Find course</span><i>›</i><span>Course detail</span><i>›</i><span>Register</span><i>›</i><span>Checkout</span><i>›</i><span>Payment</span><i>›</i><span>Verification</span><i>›</i><span>Enrollment</span><i>›</i><span>Learning</span><i>›</i><span>Quiz + assignment</span><i>›</i><span>Final exam</span><i>›</i><span>Certificate</span><i>›</i><span>Membership</span><i>›</i><span>Community</span><i>›</i><span>Career</span><i>›</i><span>Alumni</span></div>
+</section>
+
+<section id="sec">
+<h2>Security and admin control</h2>
+<div class="grid">
+<div class="card"><h4>Must-have</h4><ul><li>HTTPS</li><li>Password hashing</li><li>MFA for admin</li><li>Role-based access</li><li>Rate limiting</li><li>Input validation</li><li>Secure file upload</li><li>Audit logs</li><li>Backup</li><li>Session management</li><li>Payment verification</li><li>Webhook signature verification</li><li>Admin login protection</li></ul></div>
+<div class="card"><h4>Least-privilege admin roles</h4><small>Finance: payments, refunds, payouts · Academic: courses, exams, certificates · Marketing: campaigns, coupons, content · Support: users, tickets · Super Admin: everything.</small></div>
+<div class="card"><h4>Audit log</h4><small>Every action records who, what, when, from where, before, after. Example: Admin X changed course price from 499 ETB to 699 ETB.</small></div>
+</div>
+</section>
+
+<section id="next">
+<h2>What makes INA-LWA different</h2>
+<p>Not only a course site: Academy + LMS + Membership + Certification + Community + Career + Corporate Training + Instructor Marketplace + Affiliate System + Digital Marketplace. Long-term: an Education Ecosystem.</p>
+<div class="note">The Design System + UI/UX Master Specification (colors, logo, typography, cards, dashboards, certificate, pricing cards, buttons, forms, dark/light mode) is the first page of this project; open it from your project files.</div>
+<h3>Next: Developer handoff</h3>
+<p><small>Frontend, backend, API, database schema, folder structure, deployment, payment integration.</small></p>
+</section>
+
+<footer>INA-LWA Page-by-Page Build Specification · Qopheessaa: Ibsan Naaji</footer>
+
+<script>
+(function(){
+var r=document.documentElement,b=document.getElementById('theme'),k=0,$=function(x){return document.getElementById(x)},f=new Intl.NumberFormat('en-US');
+b.onclick=function(){k=(k+1)%3;if(k===0)r.removeAttribute('data-theme');else r.setAttribute('data-theme',k===1?'light':'dark');b.textContent=['Auto','Light','Dark'][k]};
+var P=[
+['Home','/','Public','Explore Courses, Join INA-LWA, Start Learning Free','Search, language switch','—'],
+['Academy','/academy','Public','Explore school','—','schools'],
+['School page','/academy/life','Public','Explore Wealth Courses','Program table: courses, level, duration, certificate, price','schools, programs'],
+['Courses','/courses','Public','View Course','Filters: category, school, level, price, duration, language, certificate, instructor, rating; search','courses'],
+['Course detail','/course/course-name','Public','Enroll Now, Add to Wishlist, Share','—','courses, modules, lessons, reviews'],
+['Checkout','/checkout','Student','Pay & Enroll','Name, email, phone, country, payment method','orders, order_items, payments'],
+['Student dashboard','/dashboard','Student','Continue Learning','Stats cards','enrollments, progress, points'],
+['Lesson player','/learn/{lesson}','Student','Previous, Complete & Continue, Download Resource','Notes','lesson_progress'],
+['Quiz','/quiz/{id}','Student','Submit Answer','Answer A–D','quizzes, questions, answers'],
+['Assignment','/assignment/{id}','Student','Upload Assignment','File: PDF, DOCX, XLSX, image','assignments, submissions'],
+['Final exam','/exam/{id}','Student','Submit (auto-submit on timer)','Timed, randomized','exams, exam_results'],
+['Certificate center','/certificates','Student','View Certificate, Verify, Share','—','certificates'],
+['Verify certificate','/verify','Public','Verify Certificate','Certificate ID','certificates'],
+['Instructor directory','/instructors','Public','View Profile','—','instructor_profiles'],
+['Become instructor','/become-instructor','Public','Submit Application','Name, email, phone, education, expertise, experience, topic, portfolio, video, CV, social, motivation','instructor applications'],
+['Instructor dashboard','/instructor/dashboard','Instructor','Create Course, Request Payout','Course creator, 9 steps','courses, earnings, payouts'],
+['Membership','/membership','Public','Join Basic, Join Pro, Join Master','—','membership_plans, subscriptions'],
+['Community','/community','Student','Post, Comment, React','Posts, questions','posts, comments'],
+['Career','/career','Student','Build My Professional Profile','Profile fields','profiles, opportunities'],
+['Corporate portal','/corporate/dashboard','Corporate','Invite, Enroll, Download Report','Employee invites','company accounts, enrollments'],
+['Admin','/admin','Admin','Approve, Reject, Suspend, Archive, Revoke','Filters and tables','all, audit_logs']
+];
+var A=['All','Public','Student','Instructor','Corporate','Admin'],cur='All',ch=$('chips');
+A.forEach(function(a){var x=document.createElement('button');x.textContent=a;x.setAttribute('aria-pressed',a==='All');x.onclick=function(){cur=a;[].forEach.call(ch.children,function(c){c.setAttribute('aria-pressed',c===x)});draw()};ch.appendChild(x)});
+function row(c,l,v){var d=document.createElement('div');var s=document.createElement('small');s.textContent=l+': ';d.appendChild(s);d.appendChild(document.createTextNode(v));c.appendChild(d)}
+function draw(){var q=$('q').value.toLowerCase(),g=$('list'),n=0;g.textContent='';
+P.forEach(function(p){if(cur!=='All'&&p[2]!==cur)return;if(q&&p.join(' ').toLowerCase().indexOf(q)<0)return;n++;var c=document.createElement('div');c.className='card';var h=document.createElement('h4');h.textContent=p[0];c.appendChild(h);var cd=document.createElement('code');cd.textContent=p[1];c.appendChild(cd);
+var w=document.createElement('div');w.style.marginTop='8px';row(w,'Access',p[2]);row(w,'Buttons',p[3]);row(w,'Forms/fields',p[4]);row(w,'Data',p[5]);c.appendChild(w);g.appendChild(c)});
+$('cnt').textContent=n+' of '+P.length+' pages shown. Routes other than those named in the spec are suggested.'}
+$('q').addEventListener('input',draw);draw();
+function lp(){var a=+$('l1').value||0,t=Math.max(1,+$('l2').value||1),p=Math.min(100,Math.round(a/t*100));$('lp').textContent=Math.min(a,t)+' / '+t+' lessons · '+p+'%';$('lb').style.width=p+'%'}
+function ck(){var t=Math.max(0,(+$('ck').value||0)-(+$('dc').value||0)+(+$('fe').value||0));$('tt').textContent=f.format(t)+' ETB'}
+['l1','l2'].forEach(function(x){$(x).addEventListener('input',lp)});['ck','dc','fe'].forEach(function(x){$(x).addEventListener('input',ck)});lp();ck();
+})();
+</script>
+</body>
+</html>

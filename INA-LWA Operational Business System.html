@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INA-LWA Operational Business System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--primary:#0B1B3A;--secondary:#2457D6;--accent:#C9A227;--success:#1E9E5A;--danger:#D64545;--bg:#F5F7FB;--card:#fff;--text:#0B1B3A;--muted:#5B6783;--line:#DCE2EE;--r:12px;--s:16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}}
+:root[data-theme="dark"]{--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,Inter,system-ui,sans-serif}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 8px}h1{font-size:clamp(32px,6vw,56px);font-weight:800}h2{font-size:clamp(26px,4vw,38px);font-weight:800}h3{font-size:22px}h4{font-size:18px}
+p{margin:0 0 var(--s);max-width:70ch}small{font-size:14px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--primary);color:#fff;display:flex;align-items:center;gap:var(--s);padding:12px var(--s)}
+header.top b span{color:var(--accent)}
+nav{display:flex;gap:var(--s);overflow-x:auto;flex:1;white-space:nowrap}nav a{color:#cfd8ee;text-decoration:none;font-size:14px}
+.theme{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:var(--primary);color:#fff;padding:64px var(--s)}.hero div{max-width:1100px;margin:auto}.hero p{color:#cfd8ee;font-size:18px}.gold{color:var(--accent)}
+section{max-width:1100px;margin:auto;padding:56px var(--s);border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:var(--s);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s)}
+.card ul,.card ol{margin:0;padding-left:18px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:var(--s)}.flow span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:14px}.flow i{color:var(--accent);font-style:normal}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:340px}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px;vertical-align:top}td:last-child,th:last-child{text-align:right}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);padding:1px 6px;border-radius:4px}
+label{display:block;font-weight:600;font-size:14px;margin:8px 0 4px}
+input,select{width:100%;padding:10px;border:2px solid var(--line);border-radius:6px;background:var(--card);color:var(--text);font:inherit}
+.out{font-size:26px;font-weight:800;color:var(--success)}
+.note{border-left:4px solid var(--accent);padding:8px var(--s);background:var(--card);border-radius:6px;margin-bottom:var(--s)}
+.phase{border-left:4px solid var(--accent);padding-left:var(--s);margin-bottom:12px}
+.tot td{font-weight:800}
+footer{text-align:center;padding:32px var(--s);color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top"><b>INA<span>-LWA</span></b>
+<nav><a href="#org">Structure</a><a href="#policy">Policies</a><a href="#instr">Instructors</a><a href="#cert">Certificates</a><a href="#member">Membership</a><a href="#corp">Corporate</a><a href="#fin">Finance</a><a href="#daily">Operations</a><a href="#launch">90 days</a></nav>
+<button class="theme" id="theme" aria-label="Theme">Auto</button></header>
+
+<div class="hero"><div>
+<p class="gold"><b>Learn • Build • Apply • Grow</b></p>
+<h1>Operational Business System</h1>
+<p>How the Academy runs day to day, earns revenue, keeps students, manages instructors, issues certificates, sells corporate training and becomes an institution.</p>
+</div></div>
+
+<section id="org">
+<h2>Organizational structure</h2>
+<div class="grid">
+<div class="card"><h4>Founder / CEO</h4><small>Vision and strategy, brand direction, partnerships, major financial decisions, investor/sponsor relationships.</small></div>
+<div class="card"><h4>Academy Director</h4><small>Daily academy operations, coordinating departments, instructor management, course quality, student experience.</small></div>
+</div>
+<h3 style="margin-top:24px">11 departments</h3>
+<div class="tbl"><table><tr><th>Department</th><th>Responsibility</th></tr>
+<tr><td>Academic</td><td>Curriculum, courses, exams</td></tr>
+<tr><td>Instructor Management</td><td>Recruitment and performance</td></tr>
+<tr><td>Student Success</td><td>Enrollment, support, retention</td></tr>
+<tr><td>Technology</td><td>Website, app, LMS, security</td></tr>
+<tr><td>Marketing</td><td>Social media, ads, campaigns</td></tr>
+<tr><td>Sales</td><td>Course, membership, corporate sales</td></tr>
+<tr><td>Finance</td><td>Payments, reconciliation, payouts</td></tr>
+<tr><td>Certification</td><td>Exams, certificates, verification</td></tr>
+<tr><td>Corporate Training</td><td>Companies and institutions</td></tr>
+<tr><td>Community</td><td>Groups, events, alumni</td></tr>
+<tr><td>HR/Admin</td><td>Staff and internal operations</td></tr></table></div>
+<h3 style="margin-top:24px">Launch-phase core team</h3>
+<div class="flow"><span>Founder/CEO</span><span>Academy Operations Manager</span><span>Academic/Course Manager</span><span>Marketing &amp; Sales Manager</span><span>Technology/Developer</span><span>Student Support Officer</span><span>Finance/Admin</span></div>
+<small>Instructors can be full-time, contract or commission-based.</small>
+</section>
+
+<section id="policy">
+<h2>Policies and student conduct</h2>
+<div class="grid">
+<div class="card"><h4>16 policies in a Terms &amp; Policies Center</h4><ol><li>Student Code of Conduct</li><li>Instructor Code of Conduct</li><li>Course Quality</li><li>Academic Integrity</li><li>Examination</li><li>Assignment</li><li>Certificate</li><li>Refund</li><li>Membership</li><li>Payment</li><li>Privacy</li><li>Terms of Service</li><li>Affiliate</li><li>Corporate Training</li><li>Intellectual Property</li><li>Community Guidelines</li></ol></div>
+<div class="card"><h4>Student code of conduct</h4><ul><li>Don't share your account</li><li>Don't download or distribute content unlawfully</li><li>No cheating in exams</li><li>Respect instructors and students</li><li>No hate, harassment or abuse</li><li>No fake certificates or information</li><li>No payment fraud</li></ul><p style="margin-top:8px"><small>Violations:</small></p><div class="flow" style="margin:0"><span>Warning</span><i>›</i><span>Temporary suspension</span><i>›</i><span>Account restriction</span><i>›</i><span>Permanent ban</span></div></div>
+</div>
+<h3 style="margin-top:24px">Student journey</h3>
+<div class="flow"><span>Discover</span><i>›</i><span>Register</span><i>›</i><span>Explore course</span><i>›</i><span>Enroll</span><i>›</i><span>Payment</span><i>›</i><span>Learn</span><i>›</i><span>Practice</span><i>›</i><span>Quiz</span><i>›</i><span>Assignment</span><i>›</i><span>Final assessment</span><i>›</i><span>Certificate</span><i>›</i><span>Membership</span><i>›</i><span>Community</span><i>›</i><span>Career</span><i>›</i><span>Alumni</span></div>
+</section>
+
+<section id="instr">
+<h2>Instructor system</h2>
+<div class="flow"><span>Application</span><i>›</i><span>Academic review</span><i>›</i><span>Interview</span><i>›</i><span>Agreement signed</span><i>›</i><span>Onboarding</span><i>›</i><span>Course production</span></div>
+<small>Production: Proposal → Curriculum → Content → Recording → Editing → Assessment → Review → Publish. Review results: Approved / Revision Required / Rejected.</small>
+<div class="grid" style="margin-top:16px">
+<div class="card"><h4>Levels</h4><ol><li>Instructor</li><li>Senior Instructor</li><li>Lead Instructor</li><li>Master Instructor</li><li>Academy Mentor</li></ol></div>
+<div class="card"><h4>Course approval pipeline</h4><small>Proposal → Academic → Curriculum → Content → Video/audio quality → Assessment → Final approval → Publish. A course needs: title, description, audience, objectives, prerequisites, modules, lessons, exercises, quiz, assignment, final assessment, certificate criteria.</small></div>
+<div class="card"><h4>Monthly performance score</h4>
+<label for="p1">Student rating (20)</label><input id="p1" type="number" min="0" max="100" value="90">
+<label for="p2">Completion rate (20)</label><input id="p2" type="number" min="0" max="100" value="80">
+<label for="p3">Student satisfaction (15)</label><input id="p3" type="number" min="0" max="100" value="85">
+<label for="p4">Assessment quality (15)</label><input id="p4" type="number" min="0" max="100" value="75">
+<label for="p5">Course sales (10)</label><input id="p5" type="number" min="0" max="100" value="70">
+<label for="p6">Response time (10)</label><input id="p6" type="number" min="0" max="100" value="95">
+<label for="p7">Content updates (10)</label><input id="p7" type="number" min="0" max="100" value="60">
+<p style="margin-top:12px"><span class="out" id="ps"></span> <b id="pl"></b></p><small>90+ Excellent · 80–89 Strong · 70–79 Good · 60–69 Improvement Required · below 60 Review</small></div>
+</div>
+<h3 style="margin-top:24px">Revenue models</h3>
+<div class="grid">
+<div class="card"><label for="pr">Course price (ETB)</label><input id="pr" type="number" min="0" value="699">
+<label for="md">Model</label><select id="md">
+<option value="60,40,0">A: Platform 60 / Instructor 40</option>
+<option value="50,40,10" selected>B: Platform 50 / Instructor 40 / Affiliate 10</option>
+<option value="70,30,0">C: Corporate course, Platform 70 / Instructor 30</option>
+<option value="40,60,0">D: Instructor-created premium, Platform 40 / Instructor 60</option></select></div>
+<div class="card"><small>Platform</small><br><b id="mp"></b><p></p><small>Instructor</small><br><span class="out" id="mi"></span><p></p><small>Affiliate</small><br><b id="ma"></b></div>
+</div>
+<div class="note" style="margin-top:16px">Commission is not one fixed rule. Write the model clearly in each course agreement.</div>
+</section>
+
+<section id="cert">
+<h2>Certificates</h2>
+<div class="grid">
+<div class="card"><h4>Requirements</h4><ul><li>Finish required lessons</li><li>Pass required quizzes</li><li>Finish assignments</li><li>Pass final assessment</li><li>Payment/account in good standing</li></ul></div>
+<div class="card"><h4>Categories</h4><small>Completion · Professional · Advanced · Master · Instructor · Corporate Training</small></div>
+<div class="card"><h4>Verification page</h4><small>ID example <code>INA-LWA-2026-000001</code>, via QR. Shows ID, student, program, course, instructor, issue and completion dates, status, verification token. 🟢 Valid · 🟡 Under Review · 🔴 Revoked.</small></div>
+</div>
+</section>
+
+<section id="member">
+<h2>Membership and retention</h2>
+<div class="grid">
+<div class="card"><h4>Free</h4><small>Public lessons, selected resources, limited community, some events.</small></div>
+<div class="card"><h4>Basic · 299 ETB/mo</h4><small>Selected courses, community, monthly workshop, discounts, resources.</small></div>
+<div class="card"><h4>Pro · 699 ETB/mo</h4><small>Premium courses, live sessions, assignments, certificate discounts, career resources, premium community.</small></div>
+<div class="card"><h4>Master · 1,499 ETB/mo</h4><small>All/most premium courses, live masterclasses, mentorship, career support, business workshops, exclusive community, priority support.</small></div>
+</div>
+<p style="margin-top:8px"><small>Launch pricing examples; adjust after market testing.</small></p>
+<h3>First-month retention engine</h3>
+<div class="flow"><span>Day 1 Welcome</span><i>›</i><span>Day 3 Start first course</span><i>›</i><span>Day 7 Progress reminder</span><i>›</i><span>Day 14 Challenge</span><i>›</i><span>Day 21 Live session</span><i>›</i><span>Day 25 Achievement</span><i>›</i><span>Day 28 Next-month recommendation</span></div>
+<small>Payment → Engagement → Learning → Result → Renewal</small>
+<h3 style="margin-top:24px">Refund policy (example)</h3>
+<ul>
+<li>Requests only within a set time after payment</li>
+<li>Refund may be limited if much of the content was used</li>
+<li>Fraudulent transactions are investigated; duplicate payments are corrected</li>
+<li>No refund on a completed course, if the terms say so</li>
+</ul>
+<div class="flow"><span>Request</span><i>›</i><span>Support review</span><i>›</i><span>Finance verification</span><i>›</i><span>Approval</span><i>›</i><span>Payment reversal</span><i>›</i><span>Access adjustment</span></div>
+<div class="note">Get legal review of the final refund policy, based on your payment provider and local law.</div>
+</section>
+
+<section id="corp">
+<h2>Corporate training and affiliates</h2>
+<div class="grid">
+<div class="card"><h4>Starter · 10–25 employees</h4><small>Communication, teamwork, productivity, leadership basics.</small></div>
+<div class="card"><h4>Professional · 25–100</h4><small>Leadership, sales, customer service, financial literacy, digital skills, management.</small></div>
+<div class="card"><h4>Enterprise · 100+</h4><small>Custom curriculum, live training, assessment, employee dashboard, certificates, management report, follow-up coaching.</small></div>
+</div>
+<h3 style="margin-top:24px">Sales process</h3>
+<div class="flow"><span>Lead</span><i>›</i><span>Discovery call</span><i>›</i><span>Needs assessment</span><i>›</i><span>Proposal</span><i>›</i><span>Quotation</span><i>›</i><span>Contract</span><i>›</i><span>Payment</span><i>›</i><span>Training</span><i>›</i><span>Assessment</span><i>›</i><span>Certificate</span><i>›</i><span>Performance report</span><i>›</i><span>Renewal</span></div>
+<div class="card"><h4>Proposal (15 parts)</h4><small>Company profile, training problem, objectives, target employees, curriculum, methodology, duration, trainer profile, deliverables, assessment, certificate, reporting, investment, terms, contact.</small></div>
+<div class="grid" style="margin-top:16px">
+<div class="card"><h4>Affiliate flow</h4><small>Register → get link → promote → customer pays → sale verified → commission. Dashboard: clicks, leads, orders, verified sales, commission, pending, paid, conversion rate.</small></div>
+<div class="card"><h4>No commission when</h4><small>Payment failed, order cancelled, refund, duplicate, fraud, fake transaction.</small></div>
+</div>
+</section>
+
+<section id="fin">
+<h2>Financial model (launch phase target)</h2>
+<div class="grid">
+<div class="card"><h4>Monthly revenue</h4><div class="tbl"><table>
+<tr><td>Course sales</td><td>150,000</td></tr><tr><td>Membership</td><td>100,000</td></tr><tr><td>Live training</td><td>75,000</td></tr><tr><td>Corporate</td><td>150,000</td></tr><tr><td>Certificates</td><td>25,000</td></tr><tr><td>Digital products</td><td>50,000</td></tr>
+<tr class="tot"><td>Total (ETB)</td><td>550,000</td></tr></table></div></div>
+<div class="card"><h4>Monthly expenses</h4><div class="tbl"><table>
+<tr><td>Staff</td><td>120,000</td></tr><tr><td>Instructor payouts</td><td>100,000</td></tr><tr><td>Marketing</td><td>80,000</td></tr><tr><td>Technology</td><td>40,000</td></tr><tr><td>Operations</td><td>30,000</td></tr><tr><td>Customer support</td><td>20,000</td></tr><tr><td>Miscellaneous</td><td>20,000</td></tr>
+<tr class="tot"><td>Total (ETB)</td><td>410,000</td></tr></table></div></div>
+<div class="card"><h4>Operating surplus</h4><span class="out">140,000 ETB</span><p></p><small>550,000 − 410,000. A target model only; actual figures depend on sales and staffing.</small></div>
+</div>
+<h3 style="margin-top:24px">Twelve revenue streams</h3>
+<div class="flow"><span>Course sales</span><span>Membership</span><span>Live training</span><span>Corporate training</span><span>Certification</span><span>Mentorship</span><span>Digital products</span><span>Events</span><span>Affiliate marketplace</span><span>Instructor marketplace</span><span>Partnerships</span><span>Sponsorship</span></div>
+</section>
+
+<section id="daily">
+<h2>Daily and weekly operations</h2>
+<div class="grid">
+<div class="card"><h4>Daily schedule</h4><div class="tbl"><table>
+<tr><td>08:00–09:00</td><td>Dashboard, payments, registrations, tickets</td></tr>
+<tr><td>09:00–11:00</td><td>Course/content operations</td></tr>
+<tr><td>11:00–13:00</td><td>Sales and marketing</td></tr>
+<tr><td>14:00–16:00</td><td>Instructor and corporate operations</td></tr>
+<tr><td>16:00–17:00</td><td>Finance reconciliation</td></tr>
+<tr><td>17:00–18:00</td><td>Student engagement/community</td></tr></table></div></div>
+<div class="card"><h4>Weekly management meeting</h4><small><b>Academic:</b> courses, students, completion · <b>Sales:</b> revenue, orders, conversion · <b>Marketing:</b> leads, CAC, campaigns · <b>Finance:</b> revenue, expenses, outstanding payouts · <b>Support:</b> tickets, response time, complaints · <b>Technology:</b> bugs, downtime, security.</small></div>
+<div class="card"><h4>CEO KPI dashboard</h4><small><b>Growth:</b> registered, active, new students, new members, returning · <b>Learning:</b> enrollment, completion, quiz pass rate, certificates · <b>Finance:</b> gross, net, refunds, instructor and affiliate payouts, profit · <b>Marketing:</b> leads, conversion, CAC, ROAS, referral sales · <b>Quality:</b> rating, NPS, complaint rate, instructor score.</small></div>
+</div>
+</section>
+
+<section id="launch">
+<h2>90-day launch plan</h2>
+<div class="grid">
+<div class="phase"><b>Days 1–30 Foundation</b><br><small>Wk 1: brand, business model, policies, structure, curriculum architecture. Wk 2: UX/UI, database, authentication, admin. Wk 3: course system, payment, student and instructor dashboards. Wk 4: certificates, membership, testing, first courses.</small></div>
+<div class="phase"><b>Days 31–60 Content + audience</b><br><small>10–20 quality courses across the five schools. Daily short-form content on YouTube, TikTok, Facebook, Telegram.</small></div>
+<div class="phase"><b>Days 61–90 Monetization</b><br><small>"INA-LWA 90-Day Learning Challenge". Targets: first paying students, members, certified learners, instructors, corporate client, affiliate network.</small></div>
+</div>
+<h3 style="margin-top:24px">Launch funnel</h3>
+<div class="flow"><span>Social media</span><i>›</i><span>Free masterclass</span><i>›</i><span>Free registration</span><i>›</i><span>Low-ticket course</span><i>›</i><span>Membership</span><i>›</i><span>Premium program</span><i>›</i><span>Mentorship</span><i>›</i><span>Corporate/professional services</span></div>
+<h3>First 5 flagship programs (5–10 courses each)</h3>
+<div class="flow"><span>01 Financial Literacy &amp; Wealth Building</span><span>02 Business &amp; Entrepreneurship</span><span>03 Digital Marketing &amp; AI</span><span>04 Personal Development &amp; Leadership</span><span>05 Career &amp; Professional Skills</span></div>
+<div class="note">"We don't just teach. We help people learn, build, apply and grow."</div>
+<h3>Next: Page-by-page build specification</h3>
+<p><small>Home, course page, checkout, student/instructor/admin dashboards, membership, certificate verification and corporate portal, each with buttons, forms, database and workflow.</small></p>
+</section>
+
+<footer>INA-LWA Operational Business System · Qopheessaa: Ibsan Naaji</footer>
+
+<script>
+(function(){
+var r=document.documentElement,b=document.getElementById('theme'),k=0,$=function(x){return document.getElementById(x)},f=new Intl.NumberFormat('en-US',{maximumFractionDigits:2});
+b.onclick=function(){k=(k+1)%3;if(k===0)r.removeAttribute('data-theme');else r.setAttribute('data-theme',k===1?'light':'dark');b.textContent=['Auto','Light','Dark'][k]};
+function ps(){var w=[.2,.2,.15,.15,.1,.1,.1],t=0;for(var i=0;i<7;i++)t+=w[i]*Math.min(100,Math.max(0,+$('p'+(i+1)).value||0));
+$('ps').textContent=t.toFixed(1);$('pl').textContent=t>=90?'Excellent':t>=80?'Strong':t>=70?'Good':t>=60?'Improvement Required':'Review'}
+function rm(){var p=+$('pr').value||0,s=$('md').value.split(',').map(Number);
+$('mp').textContent=f.format(p*s[0]/100)+' ETB';$('mi').textContent=f.format(p*s[1]/100)+' ETB';$('ma').textContent=f.format(p*s[2]/100)+' ETB'}
+for(var i=1;i<=7;i++)$('p'+i).addEventListener('input',ps);$('pr').addEventListener('input',rm);$('md').addEventListener('input',rm);ps();rm();
+})();
+</script>
+</body>
+</html>

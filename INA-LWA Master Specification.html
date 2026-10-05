@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INA-LWA Master Specification</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--primary:#0B1B3A;--secondary:#2457D6;--accent:#C9A227;--success:#1E9E5A;--warning:#E8A317;--danger:#D64545;--bg:#F5F7FB;--card:#fff;--text:#0B1B3A;--muted:#5B6783;--line:#DCE2EE;--r:12px;--s:16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}}
+:root[data-theme="dark"]{--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,Inter,system-ui,sans-serif}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 8px}h1{font-size:clamp(32px,6vw,56px);font-weight:800}h2{font-size:clamp(26px,4vw,38px);font-weight:800}h3{font-size:22px}h4{font-size:18px}
+p{margin:0 0 var(--s);max-width:70ch}small{font-size:14px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--primary);color:#fff;display:flex;align-items:center;gap:var(--s);padding:12px var(--s)}
+header.top b span{color:var(--accent)}
+nav{display:flex;gap:var(--s);overflow-x:auto;flex:1;white-space:nowrap}nav a{color:#cfd8ee;text-decoration:none;font-size:14px}
+.theme{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:var(--primary);color:#fff;padding:64px var(--s)}.hero div{max-width:1100px;margin:auto}.hero p{color:#cfd8ee;font-size:18px}.gold{color:var(--accent)}
+section{max-width:1100px;margin:auto;padding:56px var(--s);border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:var(--s);grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s)}
+.card ul{margin:0;padding-left:18px}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--line)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.flow span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:14px}.flow i{color:var(--accent);font-style:normal}
+.plan.pop{border:2px solid var(--secondary)}.plan.mas{border:2px solid var(--accent)}.price{font-size:22px;font-weight:800}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:460px}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);padding:1px 6px;border-radius:4px}
+label{display:block;font-weight:600;font-size:14px;margin:8px 0 4px}
+input,select{width:100%;padding:10px;border:2px solid var(--line);border-radius:6px;background:var(--card);color:var(--text);font:inherit}
+.out{font-size:28px;font-weight:800;color:var(--success)}
+.phase{border-left:4px solid var(--accent);padding-left:var(--s);margin-bottom:var(--s)}
+footer{text-align:center;padding:32px var(--s);color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top"><b>INA<span>-LWA</span></b>
+<nav><a href="#systems">Systems</a><a href="#member">Membership</a><a href="#cert">Certificates</a><a href="#inst">Instructors</a><a href="#journey">Journey</a><a href="#org">Business</a><a href="#tech">Technology</a><a href="#revenue">Revenue</a><a href="#phases">Phases</a></nav>
+<button class="theme" id="theme" aria-label="Theme">Auto</button></header>
+
+<div class="hero"><div>
+<p class="gold"><b>INA LIFE &amp; WEALTH ACADEMY</b></p>
+<h1>Master Specification</h1>
+<p>An Ethiopian online learning, training and professional development network. Learn • Build • Apply • Grow</p>
+<p>Student → Member → Certified Learner → Instructor → Mentor → Academy Partner</p>
+</div></div>
+
+<section id="systems">
+<h2>Five systems</h2>
+<div class="grid">
+<div class="card"><h4>1. Online learning platform</h4><small>Student dashboard: My Courses, Continue Learning, Certificates, Membership, Assignments, Exams/Quizzes, Progress, Live Classes, Instructor, Payment History, Community, Profile.</small></div>
+<div class="card"><h4>2. Training and live classes</h4><small>Self-paced: Module → Lesson → Video → PDF → Quiz → Assignment → Final Exam → Pass → Certificate. Live (Zoom/Meet): Mon lesson, Wed workshop, Fri Q&amp;A, Sun assignment review.</small></div>
+<div class="card"><h4>3. Membership</h4><small>Free, Basic, Pro, Premium/Master. Pricing is a starting test; adjust after market testing.</small></div>
+<div class="card"><h4>4. Certificate and verification</h4><small>Course completion → assessment → pass → certificate ID → public verification.</small></div>
+<div class="card"><h4>5. Instructor network</h4><small>Apply, review, approve, certify. Revenue sharing and career levels.</small></div>
+</div>
+<h3 style="margin-top:32px">Course categories</h3>
+<div class="grid">
+<div class="card"><h4>INA Life</h4><small>Personal Development, Mindset, Communication, Relationship, Leadership, Life Skills</small></div>
+<div class="card"><h4>INA Wealth</h4><small>Financial Literacy, Entrepreneurship, Business Management, Digital Marketing, Sales, Personal Finance, Investment Basics</small></div>
+<div class="card"><h4>INA Digital</h4><small>AI Tools, Content Creation, Social Media, Website Building, Digital Products, Online Business</small></div>
+</div>
+</section>
+
+<section id="member">
+<h2>Membership plans</h2>
+<div class="grid">
+<div class="card plan"><h4>Free</h4><div class="price">0 ETB</div><small>Free lessons, articles, selected videos, limited community access.</small></div>
+<div class="card plan"><h4>Basic</h4><div class="price">199–299 ETB/mo</div><small>Premium lessons, community, monthly training, selected resources.</small></div>
+<div class="card plan pop"><span class="badge">Pro</span><div class="price">499–999 ETB/mo</div><small>All premium courses, live training, certificates, assignments, instructor Q&amp;A, community.</small></div>
+<div class="card plan mas"><span class="badge">Premium / Master</span><div class="price">1,500–3,000+ ETB/mo</div><small>All courses, live classes, mentorship, business workshops, instructor access, advanced certificates, career/business network.</small></div>
+</div>
+</section>
+
+<section id="cert">
+<h2>Certificates and verification</h2>
+<div class="grid">
+<div class="card"><h4>Certificate contents</h4><ul><li>Student name, course name, level</li><li>Completion date</li><li>Certificate ID, e.g. <code>INA-LWA-2026-000125</code></li><li>Instructor and Academy Director</li><li>QR code and verification URL</li></ul><p style="margin-top:8px"><small>Verify at <code>ina-lwa.com/verify/INA-LWA-2026-000125</code></small></p></div>
+<div class="card"><h4>Six certificate types</h4><ul><li>Course Certificate</li><li>Professional Certificate (several courses)</li><li>Training Certificate (live training)</li><li>Instructor Certificate</li><li>Academy Diploma (long program)</li><li>Master Certificate (advanced program)</li></ul></div>
+</div>
+</section>
+
+<section id="inst">
+<h2>Instructor network</h2>
+<h3>Application path</h3>
+<div class="flow"><span>Apply</span><i>›</i><span>Profile</span><i>›</i><span>CV</span><i>›</i><span>Expertise</span><i>›</i><span>Experience</span><i>›</i><span>Sample lesson</span><i>›</i><span>Interview</span><i>›</i><span>Assessment</span><i>›</i><span>Approval</span><i>›</i><span>Instructor account</span></div>
+<div class="grid" style="margin-top:24px">
+<div class="card"><h4>Career levels</h4><ol style="margin:0;padding-left:18px"><li>Instructor</li><li>Senior Instructor</li><li>Lead Instructor</li><li>Master Instructor</li><li>Academy Mentor</li></ol></div>
+<div class="card"><h4>Instructor dashboard</h4><small>My Courses, Create Course, Students, Assignments, Quiz, Live Classes, Attendance, Revenue, Earnings, Certificate Requests, Reviews, Messages.</small></div>
+<div class="card"><h4>Course creation and review</h4><small>Title, description, category, level, price, thumbnail, video, PDF, quiz, assignment, final exam, then Submit for Review. No course is published without admin approval.</small><p style="margin-top:8px"><span class="badge">🟡 Draft</span> <span class="badge">🔵 Under Review</span> <span class="badge">🟢 Approved</span> <span class="badge">🔴 Rejected</span> <span class="badge">⚫ Published</span></p></div>
+<div class="card"><h4>Recruitment page</h4><small>"Become an INA-LWA Instructor": name, phone, email, expertise, education, experience, course proposal, CV, sample teaching video.</small></div>
+</div>
+</section>
+
+<section id="journey">
+<h2>Student journey</h2>
+<div class="flow"><span>Visit website</span><i>›</i><span>Create account</span><i>›</i><span>Choose course</span><i>›</i><span>Pay</span><i>›</i><span>Enroll</span><i>›</i><span>Learn</span><i>›</i><span>Quiz</span><i>›</i><span>Assignment</span><i>›</i><span>Final exam</span><i>›</i><span>Pass</span><i>›</i><span>🏆 Certificate</span><i>›</i><span>Community</span><i>›</i><span>Membership</span></div>
+<h3 style="margin-top:32px">Payment flow</h3>
+<div class="flow"><span>Student</span><i>›</i><span>Payment gateway</span><i>›</i><span>Verification</span><i>›</i><span>Enrollment</span></div>
+<p style="margin-top:8px"><small>ETB payments via Telebirr, Chapa, CBE, bank payment and other supported gateways.</small></p>
+</section>
+
+<section id="org">
+<h2>Business structure</h2>
+<div class="grid">
+<div class="card"><h4>Academic</h4><small>CEO/Founder → Academy Director → Academic Department → Lead Instructors → Instructors → Teaching Assistants</small></div>
+<div class="card"><h4>Business</h4><small>Marketing, Sales, Partnerships, Corporate Training</small></div>
+<div class="card"><h4>Technology</h4><small>Website, Mobile App, Payment, LMS, Database, Certificate, Security</small></div>
+<div class="card"><h4>Student Success</h4><small>Support, Community, Feedback, Retention, Career support</small></div>
+</div>
+<h3 style="margin-top:32px">Corporate training</h3>
+<p>Example: "INA-LWA Corporate Leadership Training" for a company with 50 employees. The Academy provides curriculum, instructor, live training, assessment, certificate and report for companies, NGOs and schools.</p>
+</section>
+
+<section id="tech">
+<h2>Technology</h2>
+<div class="grid">
+<div class="card"><h4>Platform modules</h4><small>Website, Student Portal, Instructor Portal, Admin Portal, Membership, LMS, Payment, Certificate, Community, Notification, Analytics.</small></div>
+<div class="card"><h4>Database tables</h4><small><code>users</code> <code>students</code> <code>instructors</code> <code>courses</code> <code>modules</code> <code>lessons</code> <code>enrollments</code> <code>payments</code> <code>memberships</code> <code>quizzes</code> <code>questions</code> <code>answers</code> <code>assignments</code> <code>certificates</code> <code>certificate_verifications</code> <code>reviews</code> <code>instructor_earnings</code> <code>payouts</code> <code>notifications</code> <code>communities</code></small></div>
+<div class="card"><h4>Mobile app</h4><small>Start with a responsive website, then an Android app. Student: watch lessons, download resources, quizzes, live class, certificate, membership. Instructor: upload lesson, students, earnings, courses.</small></div>
+</div>
+</section>
+
+<section id="revenue">
+<h2>Revenue</h2>
+<div class="grid">
+<div class="card"><h4>Instructor revenue calculator</h4>
+<label for="n">Students</label><input id="n" type="number" min="0" value="100">
+<label for="pr">Price per student (ETB)</label><input id="pr" type="number" min="0" value="1000">
+<label for="sh">Model</label><select id="sh"><option value="60,30,10">60 / 30 / 10 (instructor / academy / platform)</option><option value="70,30,0">70 / 30 (instructor / academy)</option></select>
+<p style="margin-top:12px"><small>Total sales</small><br><b id="tot"></b></p>
+<p><small>Instructor earns</small><br><span class="out" id="ins"></span></p>
+<small id="rest"></small></div>
+<div class="card"><h4>Ten revenue streams</h4><ol style="margin:0;padding-left:18px"><li>Course sales</li><li>Membership</li><li>Live training</li><li>Corporate training</li><li>Certificate fees</li><li>Instructor revenue sharing</li><li>Mentorship</li><li>Digital products</li><li>Bootcamps</li><li>Partnerships/Sponsorships</li></ol></div>
+</div>
+</section>
+
+<section id="phases">
+<h2>Launch phases</h2>
+<div class="phase"><b>Phase 1 — Foundation (weeks 1–2)</b><br><small>Brand, mission, vision, categories, membership, certificate, instructor policy, business model.</small></div>
+<div class="phase"><b>Phase 2 — MVP (weeks 3–6)</b><br><small>Home, Courses, Course details, Login/Register, Student dashboard, Payment, Course access, Certificate.</small></div>
+<div class="phase"><b>Phase 3 — Instructor network (weeks 7–10)</b><br><small>Registration, dashboard, course creation, admin approval, revenue tracking.</small></div>
+<div class="phase"><b>Phase 4 — Membership (weeks 11–12)</b><br><small>Free, Basic, Pro, Premium, subscription, member dashboard.</small></div>
+<div class="phase"><b>Phase 5 — Scale</b><br><small>Android app, corporate training, 100+ instructors, 100+ courses, Afaan Oromoo, Amharic, English, regional expansion.</small></div>
+<h3 style="margin-top:24px">Next: full Master Specification</h3>
+<p><small>30+ website pages, Student/Instructor/Admin dashboards, database schema, payment, membership, certificate verification, instructor recruitment, commission system, course structure and business model, ready to hand to a developer.</small></p>
+</section>
+
+<footer>INA-LWA Master Specification · Qopheessaa: Ibsan Naaji</footer>
+
+<script>
+(function(){
+var r=document.documentElement,b=document.getElementById('theme'),i=0;
+b.onclick=function(){i=(i+1)%3;if(i===0)r.removeAttribute('data-theme');else r.setAttribute('data-theme',i===1?'light':'dark');b.textContent=['Auto','Light','Dark'][i]};
+var f=new Intl.NumberFormat('en-US');
+function c(){var n=+document.getElementById('n').value||0,p=+document.getElementById('pr').value||0,s=document.getElementById('sh').value.split(',').map(Number),t=n*p;
+document.getElementById('tot').textContent=f.format(t)+' ETB';
+document.getElementById('ins').textContent=f.format(t*s[0]/100)+' ETB';
+document.getElementById('rest').textContent='Academy '+f.format(t*s[1]/100)+' ETB'+(s[2]?' · Platform/payment/operations '+f.format(t*s[2]/100)+' ETB':'')}
+['n','pr','sh'].forEach(function(id){document.getElementById(id).addEventListener('input',c)});c();
+})();
+</script>
+</body>
+</html>

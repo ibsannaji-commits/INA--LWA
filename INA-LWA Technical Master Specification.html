@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INA-LWA Technical Master Specification</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--primary:#0B1B3A;--secondary:#2457D6;--accent:#C9A227;--success:#1E9E5A;--danger:#D64545;--bg:#F5F7FB;--card:#fff;--text:#0B1B3A;--muted:#5B6783;--line:#DCE2EE;--r:12px;--s:16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}}
+:root[data-theme="dark"]{--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,Inter,system-ui,sans-serif}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 8px}h1{font-size:clamp(32px,6vw,56px);font-weight:800}h2{font-size:clamp(26px,4vw,38px);font-weight:800}h3{font-size:22px}h4{font-size:18px}
+p{margin:0 0 var(--s);max-width:70ch}small{font-size:14px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--primary);color:#fff;display:flex;align-items:center;gap:var(--s);padding:12px var(--s)}
+header.top b span{color:var(--accent)}
+nav{display:flex;gap:var(--s);overflow-x:auto;flex:1;white-space:nowrap}nav a{color:#cfd8ee;text-decoration:none;font-size:14px}
+.theme{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:var(--primary);color:#fff;padding:64px var(--s)}.hero div{max-width:1100px;margin:auto}.hero p{color:#cfd8ee;font-size:18px}.gold{color:var(--accent)}
+section{max-width:1100px;margin:auto;padding:56px var(--s);border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:var(--s);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s)}
+.card ul,.card ol{margin:0;padding-left:18px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:var(--s)}.flow span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:14px}.flow i{color:var(--accent);font-style:normal}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:420px}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px;vertical-align:top}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);padding:1px 6px;border-radius:4px}
+input[type=search]{width:100%;max-width:420px;padding:10px;border:2px solid var(--line);border-radius:6px;background:var(--card);color:var(--text);font:inherit;margin-bottom:var(--s)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:var(--s)}.chips button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:99px;padding:4px 14px;cursor:pointer}.chips button[aria-pressed=true]{background:var(--secondary);color:#fff;border-color:var(--secondary)}
+.note{border-left:4px solid var(--accent);padding:8px var(--s);background:var(--card);border-radius:6px;margin-bottom:var(--s)}
+.pos{color:var(--success);font-weight:600}.neg{color:var(--danger);font-weight:600}
+footer{text-align:center;padding:32px var(--s);color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top"><b>INA<span>-LWA</span></b>
+<nav><a href="#arch">Architecture</a><a href="#roles">Roles</a><a href="#db">Database</a><a href="#flows">Workflows</a><a href="#api">API</a><a href="#ledger">Ledger</a><a href="#ops">Security &amp; Ops</a><a href="#ver">Versions</a></nav>
+<button class="theme" id="theme" aria-label="Theme">Auto</button></header>
+
+<div class="hero"><div>
+<p class="gold"><b>Learn • Build • Apply • Grow</b></p>
+<h1>Technical Master Specification</h1>
+<p>Not only what to build, but how every part of INA-LWA connects.</p>
+</div></div>
+
+<section id="arch">
+<h2>System architecture</h2>
+<div class="grid">
+<div class="card"><h4>Frontend</h4><small>Website / app</small></div>
+<div class="card"><h4>Backend</h4><small>API server</small></div>
+<div class="card"><h4>Admin</h4><small>Admin panel</small></div>
+</div>
+<div class="note" style="margin-top:16px">All three connect to one <b>database</b>, which connects to: payment · video · storage · email/SMS · analytics.</div>
+<h3>Development team</h3>
+<div class="flow"><span>Product Manager</span><span>UI/UX Designer</span><span>Frontend Developer</span><span>Backend Developer</span><span>Mobile Developer</span><span>DevOps</span><span>QA Engineer</span><span>Content Manager</span><span>Academic Manager</span><span>Customer Support</span></div>
+<h4>Product cycle</h4>
+<div class="flow"><span>Idea</span><i>›</i><span>Requirement</span><i>›</i><span>UI/UX</span><i>›</i><span>Development</span><i>›</i><span>Testing</span><i>›</i><span>Staging</span><i>›</i><span>User test</span><i>›</i><span>Fix</span><i>›</i><span>Production</span><i>›</i><span>Monitoring</span><i>›</i><span>Improvement</span></div>
+</section>
+
+<section id="roles">
+<h2>Roles and permissions</h2>
+<div class="card" style="margin-bottom:16px"><small>13 roles:</small> Super Admin, Founder/CEO, Academy Director, Admin, Content Reviewer, Finance, Marketing, Support, Instructor, Mentor, Corporate Admin, Student, Member, Affiliate.</div>
+<div class="tbl"><table><tr><th>Feature</th><th>Student</th><th>Instructor</th><th>Finance</th><th>Admin</th></tr>
+<tr><td>View courses</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Buy course</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Create course</td><td>—</td><td>✓</td><td>—</td><td>✓</td></tr>
+<tr><td>Approve course</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>View payments</td><td>Own</td><td>Own earnings</td><td>✓</td><td>✓</td></tr>
+<tr><td>Issue certificate</td><td>—</td><td>Request</td><td>—</td><td>✓</td></tr>
+<tr><td>Manage users</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr></table></div>
+<p style="margin-top:8px"><small>Rule: a user must not get anything they aren't allowed, even directly through the API.</small></p>
+</section>
+
+<section id="db">
+<h2>Database explorer</h2>
+<input id="dq" type="search" placeholder="Search tables or fields, e.g. status, certificate">
+<div id="dbg" class="grid"></div>
+<p style="margin-top:8px"><small id="dcnt"></small></p>
+<div class="grid" style="margin-top:16px">
+<div class="card"><h4>Course status</h4><small>draft · under_review · revision_required · approved · published · archived · rejected</small></div>
+<div class="card"><h4>Enrollment status</h4><small>Active · Completed · Suspended · Refunded</small></div>
+<div class="card"><h4>Payment status</h4><small>pending · successful · failed · cancelled · refunded</small></div>
+<div class="card"><h4>Progress and access</h4><small>Course progress = completed lessons ÷ total lessons. Access types: Free · One-time purchase · Membership only · Corporate access. Check "has access?" then open, or send to purchase/membership.</small></div>
+</div>
+</section>
+
+<section id="flows">
+<h2>Core workflows</h2>
+<h4>Payment</h4>
+<div class="flow"><span>Student</span><i>›</i><span>Checkout</span><i>›</i><span>Create order</span><i>›</i><span>Initialize payment</span><i>›</i><span>Gateway</span><i>›</i><span>Callback/Webhook</span><i>›</i><span>Server verification</span><i>›</i><span>Payment successful</span><i>›</i><span>Order confirmed</span><i>›</i><span>Enrollment created</span><i>›</i><span>Course access</span></div>
+<div class="note">Never trust the frontend success message alone. Confirm on the backend or from the gateway. The webhook endpoint must verify the signature.</div>
+<h4>Instructor money</h4>
+<div class="flow"><span>Gross sale</span><i>›</i><span>Refund adjustment</span><i>›</i><span>Net sale</span><i>›</i><span>Platform fee</span><i>›</i><span>Instructor share</span><i>›</i><span>Affiliate share</span><i>›</i><span>Available balance</span><i>›</i><span>Payout</span></div>
+<h4>Payout</h4>
+<div class="flow"><span>Available balance</span><i>›</i><span>Request payout</span><i>›</i><span>Finance review</span><i>›</i><span>Approved</span><i>›</i><span>Payment</span><i>›</i><span>Completed</span></div>
+<h4>Certificate verification</h4>
+<div class="flow"><span>QR</span><i>›</i><span>Verification URL</span><i>›</i><span>Database lookup</span><i>›</i><span>VALID / INVALID</span></div>
+<div class="note">Use a secure verification token in the QR, not only the certificate number (example <code>INA-LWA-2026-000001</code>).</div>
+<h4>Video</h4>
+<div class="flow"><span>Instructor upload</span><i>›</i><span>Storage</span><i>›</i><span>Transcoding</span><i>›</i><span>Protected streaming</span><i>›</i><span>Authenticated student</span></div>
+</section>
+
+<section id="api">
+<h2>API explorer</h2>
+<input id="aq" type="search" placeholder="Search endpoints, e.g. enroll, webhook, verify">
+<div class="chips" id="chips"></div>
+<div class="tbl"><table><thead><tr><th>Method</th><th>Endpoint</th><th>Module</th></tr></thead><tbody id="arows"></tbody></table></div>
+<p style="margin-top:8px"><small id="acnt"></small></p>
+<div class="card"><h4>All API modules</h4><small><code>/api/auth</code> <code>users</code> <code>students</code> <code>instructors</code> <code>courses</code> <code>modules</code> <code>lessons</code> <code>quizzes</code> <code>assignments</code> <code>exams</code> <code>enrollments</code> <code>orders</code> <code>payments</code> <code>memberships</code> <code>certificates</code> <code>referrals</code> <code>community</code> <code>notifications</code> <code>support</code> <code>analytics</code></small></div>
+</section>
+
+<section id="ledger">
+<h2>Revenue ledger example</h2>
+<p>Every money movement is a ledger entry, so revenue and costs stay transparent.</p>
+<div class="tbl"><table><tr><th>Entry</th><th>ETB</th></tr>
+<tr><td>Course sale</td><td class="pos">+1,000</td></tr>
+<tr><td>Refund</td><td class="neg">−1,000</td></tr>
+<tr><td>Instructor share</td><td class="neg">−600</td></tr>
+<tr><td>Affiliate</td><td class="neg">−100</td></tr>
+<tr><td>Platform</td><td class="pos">+700</td></tr></table></div>
+<p style="margin-top:8px"><small>This follows the sample in the spec as written. Check the figures with your accountant, since refund and share rows interact. Payout account details need encryption and strong access control. Affiliate attribution example: last valid referral.</small></p>
+</section>
+
+<section id="ops">
+<h2>Security, testing and operations</h2>
+<div class="grid">
+<div class="card"><h4>Security layers</h4><ul><li>Authentication: secure password hashing</li><li>Authorization: role-based access</li><li>API: rate limiting</li><li>Payment: server-side verification</li><li>Files: private storage</li><li>Database: encrypted backups</li><li>Audit: log admin actions</li></ul></div>
+<div class="card"><h4>Audit log and support</h4><small><code>audit_logs</code> records who did what, when (e.g. admin approved a course, finance approved a payout). Support tickets: Open → Assigned → In Progress → Resolved → Closed.</small></div>
+<div class="card"><h4>Storage</h4><small><code>/videos</code> <code>/courses</code> <code>/pdfs</code> <code>/assignments</code> <code>/certificates</code> <code>/profile-images</code> <code>/instructor-documents</code> (authorized staff only).</small></div>
+<div class="card"><h4>Testing before launch</h4><small>Functional · payment (successful, failed, refunded) · security (unauthorized access) · performance (many users) · mobile (Android) · browsers (Chrome, Firefox, Safari, Edge).</small></div>
+<div class="card"><h4>Environments</h4><div class="flow" style="margin:0"><span>Development</span><i>›</i><span>Staging</span><i>›</i><span>QA</span><i>›</i><span>Production</span></div><small>Never try new features directly in production.</small></div>
+<div class="card"><h4>Backup and scale</h4><small>Daily database backup, automated backup with recovery tests for critical production, redundant file storage, defined RPO/RTO. Scale with CDN, caching, queue workers, indexing, horizontal scaling and monitoring. Keep the architecture modular from day one.</small></div>
+<div class="card"><h4>Monitoring</h4><small>Uptime, API errors, payment failures, database health, storage, video processing, queue failures. Critical errors alert admin/technical staff.</small></div>
+<div class="card"><h4>Notifications</h4><small>Channels: in-app, email, SMS, push. Emails: welcome, enrollment confirmed, congratulations on completion, certificate ready, membership expiring, course approved.</small></div>
+<div class="card"><h4>AI and recommendations</h4><small>Start with simple rules (completed Wealth → recommend Entrepreneurship; Beginner → Intermediate). The AI assistant explains, summarizes, builds quizzes and study plans, but should not alone decide grades or certificate eligibility.</small></div>
+</div>
+</section>
+
+<section id="ver">
+<h2>Release plan</h2>
+<div class="grid">
+<div class="card"><h4>MVP</h4><small><b>Student:</b> register/login, catalogue, details, payment, enrollment, video/PDF, progress, quiz, certificate. <b>Instructor:</b> application, profile, course creation and submission, student list, earnings. <b>Admin:</b> users, courses, instructors, payments, certificates, reports. <b>Membership:</b> plans, subscription, access control.</small></div>
+<div class="card"><h4>Version 2</h4><small>Live classes, assignments, final exams, community, referral, corporate training, instructor payouts, mobile app.</small></div>
+<div class="card"><h4>Version 3</h4><small>AI tutor, personalized learning, career center, job board, instructor marketplace, alumni network, events, advanced analytics.</small></div>
+<div class="card"><h4>Version 4 — INA-LWA Global</h4><small>Ethiopia → East Africa → Africa → global Afaan Oromoo learners; English, Amharic and other languages.</small></div>
+</div>
+<h3 style="margin-top:24px">Next: Operational Business System</h3>
+<p><small>Academy policies, instructor contract, student terms, refund and certificate policy, membership rules, commission rules, corporate pricing, staff salary structure, monthly financial model, marketing funnel, 90-day launch plan and daily operations.</small></p>
+</section>
+
+<footer>INA-LWA Technical Master Specification · Qopheessaa: Ibsan Naaji</footer>
+
+<script>
+(function(){
+var r=document.documentElement,b=document.getElementById('theme'),k=0,$=function(x){return document.getElementById(x)};
+b.onclick=function(){k=(k+1)%3;if(k===0)r.removeAttribute('data-theme');else r.setAttribute('data-theme',k===1?'light':'dark');b.textContent=['Auto','Light','Dark'][k]};
+var D={
+users:'id, full_name, email, phone, password_hash, role, status, language, profile_image, created_at, updated_at',
+student_profiles:'id, user_id, bio, career_goal, learning_goal, location, education, created_at',
+instructor_profiles:'id, user_id, bio, expertise, education, experience, languages, rating, verification_status, created_at',
+courses:'id, instructor_id, school_id, title, slug, description, level, language, price, duration, thumbnail, status, certificate_enabled, created_at, updated_at',
+course_modules:'id, course_id, title, description, sort_order',
+lessons:'id, module_id, title, description, video_url, duration, content, sort_order, is_free_preview',
+quizzes:'id, lesson_id, title, pass_score, time_limit',
+questions:'id, quiz_id, question, type, points, sort_order',
+answers:'id, question_id, answer, is_correct',
+assignments:'id, course_id, title, instructions, max_score, deadline',
+submissions:'id, assignment_id, student_id, file_url, answer, score, feedback, status, submitted_at',
+exams:'id, course_id, title, pass_score, time_limit, attempt_limit',
+exam_results:'id, exam_id, student_id, score, passed, attempt_number, completed_at',
+enrollments:'id, student_id, course_id, order_id, progress, status, enrolled_at, completed_at',
+lesson_progress:'id, student_id, lesson_id, completed, watch_percentage, completed_at',
+orders:'id, user_id, total_amount, currency, status, payment_method, created_at',
+order_items:'id, order_id, product_type, product_id, price, quantity',
+payments:'id, order_id, user_id, gateway, transaction_id, amount, currency, status, paid_at',
+membership_plans:'id, name, price, billing_cycle, description, status',
+subscriptions:'id, user_id, plan_id, status, start_date, end_date, auto_renew',
+certificates:'id, certificate_number, student_id, course_id, program_id, instructor_id, score, grade, issue_date, status, verification_token, qr_code',
+financial_ledger:'id, user_id, transaction_type, reference_id, credit, debit, balance, description, created_at',
+payouts:'id, user_id, amount, method, account_reference, status, requested_at, paid_at',
+affiliates:'id, user_id, code, commission_rate, status',
+referrals:'id, affiliate_id, visitor_id, order_id, commission, status, created_at',
+notifications:'id, user_id, type, title, message, channel, read_at, created_at',
+audit_logs:'id, user_id, action, entity, entity_id, ip_reference, created_at',
+support_tickets:'id, user_id, category, subject, message, priority, status, assigned_to, created_at, resolved_at'
+};
+function dr(){var q=$('dq').value.toLowerCase(),g=$('dbg'),n=0,t=Object.keys(D);g.textContent='';
+t.forEach(function(k){if(q&&(k+' '+D[k]).toLowerCase().indexOf(q)<0)return;n++;var c=document.createElement('div');c.className='card';var h=document.createElement('h4');h.textContent=k;var s=document.createElement('small');s.textContent=D[k];c.appendChild(h);c.appendChild(s);g.appendChild(c)});
+$('dcnt').textContent=n+' of '+t.length+' tables shown'}
+$('dq').addEventListener('input',dr);dr();
+var E=[
+['POST','/api/auth/register','auth'],['POST','/api/auth/login','auth'],['POST','/api/auth/logout','auth'],['POST','/api/auth/forgot-password','auth'],['POST','/api/auth/reset-password','auth'],['GET','/api/auth/me','auth'],
+['GET','/api/courses','courses'],['GET','/api/courses/{slug}','courses'],['POST','/api/instructor/courses','courses'],['PUT','/api/instructor/courses/{id}','courses'],['DELETE','/api/instructor/courses/{id}','courses'],['POST','/api/courses/{id}/submit-review','courses'],['POST','/api/admin/courses/{id}/approve','courses'],
+['POST','/api/courses/{id}/enroll','learning'],['GET','/api/my/courses','learning'],['GET','/api/lessons/{id}','learning'],['POST','/api/lessons/{id}/complete','learning'],['POST','/api/quizzes/{id}/submit','learning'],['POST','/api/assignments/{id}/submit','learning'],['POST','/api/exams/{id}/submit','learning'],
+['GET','/api/my/certificates','certificates'],['GET','/api/certificates/{id}','certificates'],['GET','/api/certificates/verify/{number}','certificates'],['POST','/api/admin/certificates/issue','certificates'],['POST','/api/admin/certificates/revoke','certificates'],
+['POST','/api/orders','payments'],['POST','/api/payments/initialize','payments'],['POST','/api/payments/callback','payments'],['POST','/api/payments/webhook','payments'],['GET','/api/payments/{id}','payments']
+];
+var M=['all','auth','courses','learning','certificates','payments'],cur='all',ch=$('chips');
+M.forEach(function(m){var x=document.createElement('button');x.textContent=m;x.setAttribute('aria-pressed',m==='all');x.onclick=function(){cur=m;[].forEach.call(ch.children,function(c){c.setAttribute('aria-pressed',c===x)});ar()};ch.appendChild(x)});
+function ar(){var q=$('aq').value.toLowerCase(),t=$('arows'),n=0;t.textContent='';
+E.forEach(function(e){if(cur!=='all'&&e[2]!==cur)return;if(q&&e.join(' ').toLowerCase().indexOf(q)<0)return;n++;var tr=document.createElement('tr');e.forEach(function(v,i){var td=document.createElement('td');if(i===1){var c=document.createElement('code');c.textContent=v;td.appendChild(c)}else td.textContent=v;tr.appendChild(td)});t.appendChild(tr)});
+$('acnt').textContent=n+' of '+E.length+' endpoints shown'}
+$('aq').addEventListener('input',ar);ar();
+})();
+</script>
+</body>
+</html>

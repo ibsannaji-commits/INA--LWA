@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INA-LWA Master Ecosystem</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--primary:#0B1B3A;--secondary:#2457D6;--accent:#C9A227;--success:#1E9E5A;--bg:#F5F7FB;--card:#fff;--text:#0B1B3A;--muted:#5B6783;--line:#DCE2EE;--r:12px;--s:16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}}
+:root[data-theme="dark"]{--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,Inter,system-ui,sans-serif}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 8px}h1{font-size:clamp(32px,6vw,56px);font-weight:800}h2{font-size:clamp(26px,4vw,38px);font-weight:800}h3{font-size:22px}h4{font-size:18px}
+p{margin:0 0 var(--s);max-width:70ch}small{font-size:14px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--primary);color:#fff;display:flex;align-items:center;gap:var(--s);padding:12px var(--s)}
+header.top b span{color:var(--accent)}
+nav{display:flex;gap:var(--s);overflow-x:auto;flex:1;white-space:nowrap}nav a{color:#cfd8ee;text-decoration:none;font-size:14px}
+.theme{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:var(--primary);color:#fff;padding:64px var(--s)}.hero div{max-width:1100px;margin:auto}.hero p{color:#cfd8ee;font-size:18px}.gold{color:var(--accent)}
+section{max-width:1100px;margin:auto;padding:56px var(--s);border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:var(--s);grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s)}
+.card ul{margin:0;padding-left:18px}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--line)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.flow span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:14px}.flow i{color:var(--accent);font-style:normal}
+.plan.pop{border:2px solid var(--secondary)}.plan.mas{border:2px solid var(--accent)}.price{font-size:22px;font-weight:800}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:420px}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);padding:1px 6px;border-radius:4px}
+label{display:block;font-weight:600;font-size:14px;margin:8px 0 4px}
+input{width:100%;padding:10px;border:2px solid var(--line);border-radius:6px;background:var(--card);color:var(--text);font:inherit}
+.out{font-size:26px;font-weight:800;color:var(--success)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--secondary),var(--accent))}
+.phase{border-left:4px solid var(--accent);padding-left:var(--s);margin-bottom:var(--s)}
+footer{text-align:center;padding:32px var(--s);color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top"><b>INA<span>-LWA</span></b>
+<nav><a href="#schools">Schools</a><a href="#programs">Programs</a><a href="#game">Gamification</a><a href="#instructors">Instructors</a><a href="#money">Revenue</a><a href="#member">Membership</a><a href="#career">Career</a><a href="#platform">Platform</a><a href="#growth">Growth</a><a href="#menu">Menu</a></nav>
+<button class="theme" id="theme" aria-label="Theme">Auto</button></header>
+
+<div class="hero"><div>
+<p class="gold"><b>INA LIFE &amp; WEALTH ACADEMY</b></p>
+<h1>Master Ecosystem</h1>
+<p>Baradhu → Ijaari → Hojii irra oolchi → Guddadhu</p>
+<p>A trusted Afaan Oromoo-first learning, training, certification and professional network.</p>
+</div></div>
+
+<section id="schools">
+<h2>Five schools</h2>
+<div class="grid">
+<div class="card"><h4>🟢 INA Life</h4><small>Personal Development, Mindset, Emotional Intelligence, Communication, Relationship, Leadership, Time Management, Productivity, Self-Discovery</small></div>
+<div class="card"><h4>🔵 INA Wealth</h4><small>Financial Literacy, Personal Finance, Entrepreneurship, Business Management, Sales, Marketing, Wealth Creation, Business Strategy</small></div>
+<div class="card"><h4>🟣 INA Digital</h4><small>AI, Digital Marketing, Content Creation, Social Media, Website Development, E-commerce, Digital Products, Online Business</small></div>
+<div class="card"><h4>🟠 INA Career</h4><small>CV/Resume, Interview Skills, Workplace Skills, Leadership, Professional Communication, Freelancing, Remote Work, Career Development</small></div>
+<div class="card"><h4>🟡 INA Creator</h4><small>YouTube, TikTok, Facebook, Podcast, Personal Branding, Video Production, Graphic Design, AI Content Creation</small></div>
+</div>
+<h3 style="margin-top:32px">Learner path</h3>
+<div class="flow"><span>Learner</span><i>›</i><span>Student</span><i>›</i><span>Certified Learner</span><i>›</i><span>Member</span><i>›</i><span>Practitioner</span><i>›</i><span>Instructor</span><i>›</i><span>Mentor</span><i>›</i><span>Academy Partner</span></div>
+</section>
+
+<section id="programs">
+<h2>Program structure</h2>
+<p>Program → Course → Module → Lesson. A program groups courses into a professional certificate.</p>
+<div class="grid">
+<div class="card"><h4>INA Digital Business Professional Program</h4><ol style="margin:0;padding-left:18px"><li>Digital Marketing Fundamentals</li><li>Content Creation</li><li>Social Media Marketing</li><li>AI for Business</li><li>Online Sales</li></ol><p style="margin-top:8px"><small>Then: final project → final assessment → 🏆 Professional Certificate</small></p></div>
+<div class="card"><h4>Assessment</h4><small>Quiz: multiple choice, true/false, matching, short answer. Final exam example: 50 questions, pass mark 70%, retake if failed. Assignments: upload PDF, image or video; instructor reviews, scores and gives feedback.</small></div>
+<div class="card"><h4>Student progress</h4><small>Digital Marketing 80%</small><div class="bar"><i style="width:80%"></i></div><small>AI for Business 45%</small><div class="bar"><i style="width:45%"></i></div><small>Entrepreneurship 100% ✓</small><div class="bar"><i style="width:100%"></i></div></div>
+</div>
+</section>
+
+<section id="game">
+<h2>Gamification</h2>
+<div class="grid">
+<div class="card"><h4>Points</h4><div class="tbl"><table><tr><td>Lesson complete</td><td>+10</td></tr><tr><td>Quiz pass</td><td>+20</td></tr><tr><td>Assignment</td><td>+50</td></tr><tr><td>Course complete</td><td>+100</td></tr><tr><td>Referral</td><td>+100</td></tr><tr><td>Community contribution</td><td>+10</td></tr></table></div></div>
+<div class="card"><h4>Points calculator</h4>
+<label for="l">Lessons</label><input id="l" type="number" min="0" value="12">
+<label for="q">Quizzes passed</label><input id="q" type="number" min="0" value="3">
+<label for="a">Assignments</label><input id="a" type="number" min="0" value="2">
+<label for="c">Courses completed</label><input id="c" type="number" min="0" value="1">
+<p style="margin-top:12px"><span class="out" id="pts"></span> points</p></div>
+<div class="card"><h4>Badges</h4><p>🥉 Beginner · 🥈 Learner · 🥇 Practitioner · 🏆 Professional · 💎 Expert · 👑 Mentor</p><h4>Monthly leaderboard rewards</h4><small>Free membership, certificate upgrade, mentorship, training scholarship, instructor opportunity.</small></div>
+</div>
+</section>
+
+<section id="instructors">
+<h2>Instructor network</h2>
+<div class="grid">
+<div class="card"><h4>Types</h4><ul><li>Academy Instructor</li><li>Certified Instructor</li><li>Guest Instructor</li><li>Corporate Trainer</li><li>Mentor</li></ul></div>
+<div class="card"><h4>Certification path</h4><div class="flow"><span>Application</span><i>›</i><span>Documents</span><i>›</i><span>Teaching demo</span><i>›</i><span>Interview</span><i>›</i><span>Assessment</span><i>›</i><span>Training of Trainers</span><i>›</i><span>Approval</span></div><p style="margin-top:8px"><small>Result: 🏅 INA-LWA Certified Instructor</small></p></div>
+<div class="card"><h4>Profile</h4><small>Photo, name, expertise, bio, qualifications, courses, students, rating, reviews, certificates, languages, experience.</small></div>
+<div class="card"><h4>Marketplace flow</h4><small>Create course → academy review → approved → published → students enroll → revenue → revenue share.</small></div>
+</div>
+</section>
+
+<section id="money">
+<h2>Revenue share engine</h2>
+<div class="grid">
+<div class="card"><h4>Calculator</h4>
+<label for="n">Students</label><input id="n" type="number" min="0" value="500">
+<label for="pr">Course price (ETB)</label><input id="pr" type="number" min="0" value="1000">
+<label for="i">Instructor %</label><input id="i" type="number" min="0" max="100" value="60">
+<label for="ac">Academy %</label><input id="ac" type="number" min="0" max="100" value="30">
+<small id="ops"></small></div>
+<div class="card"><h4>Result</h4><small>Gross</small><br><b id="g"></b><p></p><small>Instructor</small><br><span class="out" id="ri"></span><p></p><small>Academy</small><br><b id="ra"></b><p></p><small>Operations/payment</small><br><b id="ro"></b></div>
+<div class="card"><h4>Referral</h4><small>Link: <code>ina-lwa.com/ref/IBSAN</code>. Referrer earns 10% commission when someone buys a course through the link.</small></div>
+</div>
+</section>
+
+<section id="member">
+<h2>Membership and subscription</h2>
+<div class="grid">
+<div class="card plan"><h4>Free</h4><div class="price">0 ETB</div><small>Free courses, public community, basic resources.</small></div>
+<div class="card plan"><h4>Starter</h4><div class="price">299 ETB/mo</div><small>Premium content, selected courses, monthly live class.</small></div>
+<div class="card plan pop"><h4>Pro</h4><div class="price">699 ETB/mo</div><small>Premium courses, live training, certificate discounts, community, Q&amp;A.</small></div>
+<div class="card plan mas"><h4>Master</h4><div class="price">1,499 ETB/mo</div><small>All courses, mentorship, advanced training, business workshops, priority support.</small></div>
+<div class="card plan"><h4>Corporate</h4><div class="price">Custom</div><small>Employee training, company dashboard, reports, certificates, dedicated instructor.</small></div>
+</div>
+<h3 style="margin-top:24px">Subscription lifecycle</h3>
+<div class="flow"><span>Choose plan</span><i>›</i><span>Payment</span><i>›</i><span>Active</span><i>›</i><span>Access granted</span><i>›</i><span>Expiry reminder</span><i>›</i><span>Renew</span></div>
+<p style="margin-top:8px"><small>If not renewed: Grace Period → Limited Access → Suspended.</small></p>
+</section>
+
+<section id="career">
+<h2>Career, corporate and community</h2>
+<div class="grid">
+<div class="card"><h4>Career center</h4><small>Profile, skills, courses, certificates, projects, portfolio, experience. Shareable at <code>ina-lwa.com/profile/username</code>. Job and opportunity board: jobs, internship, volunteer, freelance, instructor, mentor, partnership.</small></div>
+<div class="card"><h4>Corporate academy</h4><small>Employees, assigned courses, training progress, attendance, exam results, certificates, reports. Example: 100 accounts → course assignment → tracking → certificate.</small></div>
+<div class="card"><h4>Partners</h4><small>Companies, NGOs, schools, universities, training centers, youth organizations, associations. Types: training, hiring, certification, content, corporate, technology.</small></div>
+<div class="card"><h4>Communities and alumni</h4><small>Student, Business, Creator, Instructor, Alumni, Premium Members. Alumni get networking, jobs, partnerships, events, mentorship.</small></div>
+<div class="card"><h4>Events</h4><small>Monthly INA Learning Day · quarterly INA Business Summit · yearly INA-LWA Annual Conference. Awards: Best Student, Instructor, Project, Mentor, Entrepreneur.</small></div>
+<div class="card"><h4>AI learning assistant</h4><small>Explains modules, prepares quizzes, gives assignment feedback, recommends the next course. It assists the instructor and never replaces one.</small></div>
+</div>
+</section>
+
+<section id="platform">
+<h2>Platform, security and data</h2>
+<div class="grid">
+<div class="card"><h4>Languages</h4><small>Afaan Oromoo (primary), Amharic (secondary), English (international). Later Arabic and Swahili. Language switcher in the header. Mobile-first: video, audio, PDF, quiz, certificate, live class, notifications.</small></div>
+<div class="card"><h4>Roles</h4><small>Super Admin, Admin, Academy Director, Instructor, Mentor, Student, Member, Corporate Admin, Support, Finance, Content Reviewer.</small></div>
+<div class="card"><h4>Security</h4><small>Secure login, password hashing, email/phone verification, role-based access, payment verification, admin permissions, certificate anti-fraud, audit logs, backup, encryption.</small></div>
+<div class="card"><h4>Certificate record</h4><small>Certificate ID, student, course, instructor, completion date, score, level, verification status, QR code. Scan result: VALID or INVALID.</small></div>
+<div class="card"><h4>Database groups</h4><small><code>users</code> <code>roles</code> <code>students</code> <code>instructors</code> <code>companies</code> · <code>schools</code> <code>programs</code> <code>courses</code> <code>modules</code> <code>lessons</code> · <code>enrollments</code> <code>progress</code> <code>quizzes</code> <code>exams</code> <code>results</code> · <code>subscriptions</code> <code>payments</code> <code>refunds</code> · <code>certificates</code> · <code>instructor_earnings</code> <code>payouts</code> · <code>badges</code> <code>points</code> · <code>posts</code> <code>jobs</code> <code>audit_logs</code></small></div>
+<div class="card"><h4>Admin KPIs</h4><small>Total and active students, active members, courses, instructors, revenue, certificates, completion rate, retention, refunds, instructor earnings.</small></div>
+</div>
+</section>
+
+<section id="growth">
+<h2>Journey, marketing and 3-year plan</h2>
+<h3>Marketing funnel</h3>
+<div class="flow"><span>Free content</span><i>›</i><span>Free course</span><i>›</i><span>Paid course</span><i>›</i><span>Membership</span><i>›</i><span>Advanced program</span><i>›</i><span>Referral</span></div>
+<div style="margin-top:24px"></div>
+<div class="phase"><b>Year 1 — Foundation</b><br><small>1,000+ students, 20 instructors, 50 courses, membership and certificate systems.</small></div>
+<div class="phase"><b>Year 2 — Expansion</b><br><small>10,000+ students, 100 instructors, 200+ courses, corporate training, mobile app.</small></div>
+<div class="phase"><b>Year 3 — Network</b><br><small>50,000+ learners, 500 instructors, 500+ courses, Ethiopia-wide and international learners.</small></div>
+<p><small>These are business targets. Results depend on market, quality and execution.</small></p>
+</section>
+
+<section id="menu">
+<h2>Final website menu</h2>
+<div class="flow"><span>Home</span><span>Academy ▾ (Life, Wealth, Digital, Career, Creator)</span><span>Courses</span><span>Programs</span><span>Live Training</span><span>Membership</span><span>Instructors</span><span>Community</span><span>Certificates</span><span>Career</span><span>Corporate</span><span>Events</span><span>Blog</span><span>About</span><span>Contact</span><span>Login</span></div>
+<h3 style="margin-top:32px">Next: Master Build Specification</h3>
+<p><small>Brand rules → 40+ pages → Student, Instructor and Admin dashboards → LMS → membership → payment → certificate/QR → instructor recruitment and contract → commission → database → API → mobile app → security → marketing → 12-month launch plan.</small></p>
+</section>
+
+<footer>INA-LWA Master Ecosystem · Qopheessaa: Ibsan Naaji</footer>
+
+<script>
+(function(){
+var r=document.documentElement,b=document.getElementById('theme'),k=0,$=function(x){return document.getElementById(x)},f=new Intl.NumberFormat('en-US');
+b.onclick=function(){k=(k+1)%3;if(k===0)r.removeAttribute('data-theme');else r.setAttribute('data-theme',k===1?'light':'dark');b.textContent=['Auto','Light','Dark'][k]};
+function p(){$('pts').textContent=f.format(10*(+$('l').value||0)+20*(+$('q').value||0)+50*(+$('a').value||0)+100*(+$('c').value||0))}
+function m(){var g=(+$('n').value||0)*(+$('pr').value||0),i=+$('i').value||0,a=+$('ac').value||0,o=Math.max(0,100-i-a);
+$('g').textContent=f.format(g)+' ETB';$('ri').textContent=f.format(g*i/100)+' ETB';$('ra').textContent=f.format(g*a/100)+' ETB';$('ro').textContent=f.format(g*o/100)+' ETB';
+$('ops').textContent='Operations/payment share: '+o+'%'+(i+a>100?' (instructor + academy exceed 100%)':'')}
+['l','q','a','c'].forEach(function(x){$(x).addEventListener('input',p)});['n','pr','i','ac'].forEach(function(x){$(x).addEventListener('input',m)});p();m();
+})();
+</script>
+</body>
+</html>

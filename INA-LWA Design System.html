@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INA-LWA Design System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--primary:#0B1B3A;--secondary:#2457D6;--accent:#C9A227;--success:#1E9E5A;--warning:#E8A317;--danger:#D64545;--bg:#F5F7FB;--card:#fff;--text:#0B1B3A;--muted:#5B6783;--line:#DCE2EE;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:32px;--space-xl:64px;--onprimary:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}}
+:root[data-theme="dark"]{--bg:#070F22;--card:#101C38;--text:#EEF2FB;--muted:#9AA7C4;--line:#243256;--secondary:#5B86F0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,Inter,system-ui,sans-serif}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 var(--space-sm)}
+h1{font-size:clamp(34px,6vw,60px);font-weight:800}h2{font-size:clamp(26px,4vw,40px);font-weight:800}h3{font-size:clamp(20px,3vw,28px)}h4{font-size:20px}
+p{margin:0 0 var(--space-md);max-width:70ch}small,.small{font-size:14px;color:var(--muted)}
+a{color:var(--secondary)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--primary);color:#fff;display:flex;align-items:center;gap:var(--space-md);padding:12px var(--space-md)}
+header.top b{font-size:20px;letter-spacing:.5px}header.top b span{color:var(--accent)}
+nav{display:flex;gap:var(--space-md);overflow-x:auto;flex:1;white-space:nowrap}
+nav a{color:#cfd8ee;text-decoration:none;font-size:14px}nav a:hover{color:#fff}
+.theme{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:var(--radius-sm);padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:var(--primary);color:#fff;padding:var(--space-xl) var(--space-md)}
+.hero .in{max-width:1100px;margin:auto;display:grid;gap:var(--space-lg);grid-template-columns:1.2fr 1fr;align-items:center}
+.hero p{color:#cfd8ee;font-size:18px}.gold{color:var(--accent)}
+.visual{aspect-ratio:4/3;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--secondary),#122a5c);border:2px solid var(--accent);display:grid;place-items:center;font-size:64px}
+.btns{display:flex;gap:var(--space-sm);flex-wrap:wrap}
+.btn{font:inherit;font-weight:600;border-radius:var(--radius-md);padding:10px 20px;border:2px solid transparent;cursor:pointer}
+.b-p{background:var(--secondary);color:#fff}.b-s{background:var(--accent);color:var(--primary)}.b-o{background:transparent;border-color:var(--secondary);color:var(--secondary)}.b-g{background:transparent;color:var(--secondary)}.b-d{background:var(--danger);color:#fff}.b-ok{background:var(--success);color:#fff}
+.hero .b-o{border-color:#fff;color:#fff}
+section{max-width:1100px;margin:auto;padding:var(--space-xl) var(--space-md);border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:var(--space-md);grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:var(--space-md)}
+.sw{height:64px;border-radius:var(--radius-sm);margin-bottom:var(--space-sm);border:1px solid var(--line)}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);padding:1px 6px;border-radius:4px}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--line);margin:0 4px 4px 0}
+.thumb{height:110px;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--primary),var(--secondary));margin-bottom:var(--space-sm);display:grid;place-items:center;font-size:36px}
+.price{display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-sm);font-weight:800}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--secondary),var(--accent))}
+.plan{text-align:center}.plan .p{font-size:28px;font-weight:800}.plan.pop{border:2px solid var(--secondary)}.plan.mas{border:2px solid var(--accent)}
+.tabs{display:flex;gap:var(--space-md);border-bottom:2px solid var(--line);margin-bottom:var(--space-md);overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;font:inherit;padding:8px 2px;cursor:pointer;color:var(--muted)}.tabs button[aria-selected=true]{color:var(--secondary);border-color:var(--secondary);font-weight:700}
+details{border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:var(--space-sm);background:var(--card)}summary{cursor:pointer;font-weight:600}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:4px}
+input[type=email]{width:100%;padding:10px;border:2px solid var(--line);border-radius:var(--radius-sm);background:var(--card);color:var(--text);font:inherit}
+input.err{border-color:var(--danger)}
+.opt{display:block;padding:10px 14px;border:2px solid var(--line);border-radius:var(--radius-sm);margin-bottom:var(--space-sm);cursor:pointer;font-weight:400}
+.opt:has(input:checked){border-color:var(--secondary)}
+.state{border-left:5px solid;border-radius:var(--radius-sm);padding:var(--space-md);background:var(--card)}
+.cert{border:6px double var(--accent);background:var(--card);text-align:center;padding:var(--space-lg) var(--space-md);border-radius:var(--radius-sm)}
+.cert .nm{font-size:clamp(24px,4vw,34px);font-weight:800;border-bottom:2px solid var(--accent);display:inline-block;padding:0 var(--space-md)}
+.side{list-style:none;padding:0;margin:0}.side li{padding:6px 10px;border-radius:var(--radius-sm)}.side li:first-child{background:var(--secondary);color:#fff}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:480px}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px}
+.phase{border-left:4px solid var(--accent);padding-left:var(--space-md);margin-bottom:var(--space-md)}
+footer{text-align:center;padding:var(--space-lg) var(--space-md);color:var(--muted)}
+@media(max-width:768px){.hero .in{grid-template-columns:1fr}.hero{padding:var(--space-lg) var(--space-md)}section{padding:var(--space-lg) var(--space-md)}}
+</style>
+</head>
+<body>
+<header class="top">
+<b>INA<span>-LWA</span></b>
+<nav><a href="#brand">Brand</a><a href="#tokens">Tokens</a><a href="#components">Components</a><a href="#cards">Cards</a><a href="#learning">Learning</a><a href="#dash">Dashboards</a><a href="#cert">Certificate</a><a href="#states">States</a><a href="#rules">Rules</a><a href="#phases">Phases</a></nav>
+<button class="theme" id="theme" aria-label="Theme">Auto</button>
+</header>
+
+<div class="hero"><div class="in">
+<div>
+<p class="gold"><b>INA LIFE &amp; WEALTH ACADEMY</b></p>
+<h1>Build the knowledge, skills and confidence to grow.</h1>
+<p>Beekumsa baradhu. Dandeettii ijaari. Hojii irra oolchi. Jireenya kee guddifachiisi.</p>
+<div class="btns"><button class="btn b-s">Explore Courses</button><button class="btn b-o">Start Free</button></div>
+</div>
+<div class="visual" role="img" aria-label="Student learning with laptop">💻</div>
+</div></div>
+
+<section id="brand">
+<h2>Brand identity</h2>
+<div class="grid">
+<div class="card"><h4>Tagline</h4><p>Learn • Build • Apply • Grow</p></div>
+<div class="card"><h4>Brand promise</h4><p>Practical knowledge that becomes skills, action and growth.</p></div>
+<div class="card"><h4>Personality</h4><p>Professional, modern, educational, trustworthy, premium, African/Ethiopian, technology-driven.</p></div>
+<div class="card"><h4>Logo versions</h4><p>Primary (INA-LWA + full name), Compact, Icon (INA), Monochrome. White logo on dark, dark logo on light.</p></div>
+</div>
+</section>
+
+<section id="tokens">
+<h2>Design tokens</h2>
+<p>Developers use tokens only. Values are never hard-coded, so a redesign changes one file.</p>
+<div class="grid">
+<div class="card"><div class="sw" style="background:var(--primary)"></div><b>primary</b><br><code>#0B1B3A</code><br><small>Header, footer, text, premium sections</small></div>
+<div class="card"><div class="sw" style="background:var(--secondary)"></div><b>secondary</b><br><code>#2457D6</code><br><small>Buttons, links, active states</small></div>
+<div class="card"><div class="sw" style="background:var(--accent)"></div><b>accent</b><br><code>#C9A227</code><br><small>Premium, certificates, awards</small></div>
+<div class="card"><div class="sw" style="background:var(--success)"></div><b>success</b><br><code>#1E9E5A</code><br><small>Paid, completed, verified</small></div>
+<div class="card"><div class="sw" style="background:var(--warning)"></div><b>warning</b><br><code>#E8A317</code></div>
+<div class="card"><div class="sw" style="background:var(--danger)"></div><b>danger</b><br><code>#D64545</code></div>
+</div>
+<h3 style="margin-top:32px">Spacing, radius and type</h3>
+<p><code>space-xs 4</code> <code>sm 8</code> <code>md 16</code> <code>lg 32</code> <code>xl 64</code> · <code>radius-sm 6</code> <code>md 12</code> <code>lg 20</code></p>
+<div class="card">
+<div style="font-size:clamp(34px,6vw,60px);font-weight:800;line-height:1.1">H1 48–64px</div>
+<div style="font-size:36px;font-weight:800">H2 36–48px</div>
+<div style="font-size:28px;font-weight:600">H3 28–32px</div>
+<div style="font-size:22px;font-weight:600">H4 22–24px</div>
+<div>Body 16–18px · Afaan Oromoo: Qopheessaa, Kaartaa Jireenyaa, Hidda Miliyeenaraa</div>
+<small>Small 13–14px · Fonts: Manrope / Inter / Plus Jakarta Sans. Sizes shrink on mobile.</small>
+</div>
+</section>
+
+<section id="components">
+<h2>Components</h2>
+<h3>Buttons</h3>
+<div class="btns"><button class="btn b-p">Enroll Now</button><button class="btn b-s">Choose Plan</button><button class="btn b-o">Learn More</button><button class="btn b-g">Cancel</button><button class="btn b-ok">Complete</button><button class="btn b-d">Delete</button></div>
+<p class="small" style="margin-top:8px">Button text is short and action-oriented.</p>
+<h3 style="margin-top:32px">Badges</h3>
+<span class="badge">🟢 New</span><span class="badge">🔥 Bestseller</span><span class="badge">⭐ Top Rated</span><span class="badge">🏆 Premium</span><span class="badge">🎓 Certificate</span><span class="badge">🆓 Free</span>
+<h3 style="margin-top:32px">Form field</h3>
+<div class="card" style="max-width:420px">
+<label for="em">Email Address *</label>
+<input id="em" type="email" class="err" value="ibsan@">
+<small>We'll use this email for your account.</small><br>
+<small style="color:var(--danger)">⚠ Please enter a valid email address.</small>
+</div>
+<p class="small" style="margin-top:12px">Library also includes: text, phone, password, search, select, date, file upload, modal, drawer, tabs, accordion, tooltip, alert, toast, dropdown, pagination, table, progress bar.</p>
+</section>
+
+<section id="cards">
+<h2>Cards</h2>
+<div class="grid">
+<div class="card"><div class="thumb">💰</div><h4>INA Wealth School</h4><p class="small">Financial literacy, entrepreneurship and wealth.</p><b>12 Programs</b><br><button class="btn b-o" style="margin-top:8px">Explore School →</button></div>
+<div class="card"><div class="thumb">📘</div><span class="badge">🔥 Bestseller</span><h4>Financial Literacy</h4><small>👤 Instructor Name<br>⭐ 4.8 • 1,240 students<br>8h • Beginner • Certificate</small><div class="price"><span>699 ETB</span><button class="btn b-p">View</button></div></div>
+</div>
+<h3 style="margin-top:32px">Membership</h3>
+<div class="grid">
+<div class="card plan"><h4>Free</h4><div class="p">0 ETB</div><button class="btn b-o">Choose Plan</button></div>
+<div class="card plan"><h4>Standard</h4><div class="p">299 ETB</div><button class="btn b-o">Choose Plan</button></div>
+<div class="card plan pop"><span class="badge">MOST POPULAR</span><h4>Premium</h4><div class="p">699 ETB</div><button class="btn b-p">Choose Plan</button></div>
+<div class="card plan mas"><span class="badge">PREMIUM</span><h4>Master</h4><div class="p">1,499 ETB</div><button class="btn b-s">Choose Plan</button></div>
+</div>
+</section>
+
+<section id="learning">
+<h2>Course and learning experience</h2>
+<small>Academy › Wealth › Financial Literacy</small>
+<h3>Financial Literacy &amp; Wealth Building</h3>
+<p>⭐ 4.8 · 1,240 students · 12 lessons · 6 hours · Certificate</p>
+<div class="tabs" role="tablist" id="tabs"><button role="tab" aria-selected="true">Overview</button><button role="tab" aria-selected="false">Curriculum</button><button role="tab" aria-selected="false">Instructor</button><button role="tab" aria-selected="false">Reviews</button><button role="tab" aria-selected="false">FAQ</button></div>
+<div id="tabbody" class="card">Practical financial skills for everyday decisions: budgeting, saving, and building income.</div>
+<h3 style="margin-top:32px">Curriculum</h3>
+<details open><summary>Module 1 — Foundations</summary>✓ Lesson 1<br>✓ Lesson 2<br>🔒 Lesson 3</details>
+<details><summary>Module 2 — Application</summary>Lessons unlock as you progress.</details>
+<details><summary>Module 3 — Project</summary>Apply what you learned.</details>
+<details><summary>Final Assessment</summary>30 questions, timed.</details>
+<div class="grid" style="margin-top:32px">
+<div class="card"><h4>Progress</h4><small>Course Progress 84%</small><div class="bar"><i style="width:84%"></i></div><p class="small" style="margin-top:8px">✓ Completed · → In Progress · 🔒 Locked</p></div>
+<div class="card"><small>Question 4 of 10</small><h4>Which is the best definition of budgeting?</h4>
+<label class="opt"><input type="radio" name="q"> A. Spending without limits</label>
+<label class="opt"><input type="radio" name="q"> B. Planning income and spending</label>
+<label class="opt"><input type="radio" name="q"> C. Only saving money</label>
+<div class="btns"><button class="btn b-g">Previous</button><button class="btn b-p">Next</button></div></div>
+<div class="card"><h4>Final Assessment</h4><small>Question 12/30</small><p style="font-size:32px;font-weight:800;margin:8px 0">28:42</p><small>Time remaining</small></div>
+</div>
+</section>
+
+<section id="dash">
+<h2>Dashboards</h2>
+<div class="grid">
+<div class="card"><h4>Welcome back, Ibsan 👋</h4><small>Continue your learning journey.</small><p style="margin-top:12px">Overall Learning Progress 78%</p><div class="bar"><i style="width:78%"></i></div><small>12 Courses · 4 Completed · 3 Certificates</small>
+<ul class="side" style="margin-top:12px"><li>🏠 Overview</li><li>📚 My Learning</li><li>🎓 Certificates</li><li>📝 Assignments</li><li>🧪 Exams</li><li>❤️ Wishlist</li><li>👥 Community</li><li>💼 Career</li><li>💳 Membership</li><li>🔔 Notifications</li><li>⚙ Settings</li><li>🆘 Support</li></ul></div>
+<div class="card"><h4>Instructor</h4><div class="tbl"><table><tr><th>Students</th><th>Revenue</th><th>Rating</th></tr><tr><td>1,240</td><td>450K</td><td>4.8</td></tr></table></div><small>Charts: enrollment, revenue, completion, rating.</small>
+<h4 style="margin-top:16px">Mobile bottom navigation</h4><p>Home | Learn | Community | Certificates | Profile</p></div>
+<div class="card"><h4>Admin sidebar</h4><small>Dashboard · Users (Students, Instructors, Staff) · Academy (Schools, Programs, Courses, Lessons) · Learning (Quizzes, Assignments, Exams, Certificates) · Commerce (Orders, Payments, Refunds, Payouts) · Growth (Affiliates, Coupons, Campaigns) · Business (Membership, Corporate) · Community (Groups, Reports, Moderation) · System (Notifications, Settings, Audit Logs)</small>
+<p style="margin-top:12px"><b>KPIs:</b> Revenue, Users, Students, Instructors, Courses, Memberships, Certificates, Corporate Clients.</p></div>
+</div>
+</section>
+
+<section id="cert">
+<h2>Certificate</h2>
+<div class="cert">
+<b class="gold" style="font-size:22px">INA-LWA</b>
+<h3 style="margin-top:12px">CERTIFICATE OF COMPLETION</h3>
+<p style="margin:8px auto">This certifies that</p>
+<div class="nm">IBSAN NAAJI AHMED</div>
+<p style="margin:12px auto">has successfully completed</p>
+<h4>FINANCIAL LITERACY &amp; WEALTH BUILDING</h4>
+<p class="small" style="margin:16px auto 0">Date: ________ · Certificate ID: INA-LWA-2026-000001 · Signature · QR verification</p>
+</div>
+<p class="small" style="margin-top:8px">Print-ready PDF, unique ID, QR, digital verification.</p>
+</section>
+
+<section id="states">
+<h2>System states</h2>
+<div class="grid">
+<div class="state" style="border-color:var(--success)"><b>Payment Successful 🎉</b><p>Your enrollment is now active.</p><button class="btn b-ok">Start Learning</button></div>
+<div class="state" style="border-color:var(--danger)"><b>Payment failed</b><p>We couldn't complete your payment. Please check your payment details and try again.</p><div class="btns"><button class="btn b-p">Try Again</button><button class="btn b-o">Contact Support</button></div></div>
+<div class="state" style="border-color:var(--secondary)"><b>Your learning journey starts here.</b><p>Explore courses and enroll in your first program.</p><button class="btn b-p">Explore Courses</button></div>
+<div class="state" style="border-color:var(--accent)"><b>Congratulations! 🎓</b><p>Your certificate is ready.</p><button class="btn b-s">View Certificate</button></div>
+</div>
+</section>
+
+<section id="rules">
+<h2>UI/UX rules</h2>
+<div class="grid">
+<div class="card">1. One page = one primary goal.</div><div class="card">2. The CTA is clear.</div><div class="card">3. Don't hide information.</div><div class="card">4. Keep the payment flow short.</div><div class="card">5. Students always know where they are and what's next.</div><div class="card">6. Mobile is never second to desktop.</div>
+</div>
+<h3 style="margin-top:32px">Hero rule</h3>
+<p>One strong headline, one supporting message, two CTAs, one strong visual. No long paragraphs, no five buttons, no heavy animation.</p>
+<h3>Responsive, accessibility, performance</h3>
+<div class="grid">
+<div class="card"><b>Breakpoints</b><br><small>Mobile &lt;768 (1 column) · Tablet 768–1024 (2) · Desktop 1024–1440 (3–4) · Large &gt;1440</small></div>
+<div class="card"><b>Accessibility</b><br><small>Keyboard navigation, alt text, contrast, readable fonts, focus states, form labels, captions. Clean Afaan Oromoo typography. Dark mode: Light / Dark / System.</small></div>
+<div class="card"><b>Performance</b><br><small>Image optimization, lazy loading, CDN, video streaming, code splitting, caching, minified assets, database indexing. Fast on mobile internet.</small></div>
+</div>
+</section>
+
+<section id="phases">
+<h2>Developer handoff: 10 phases</h2>
+<div class="phase"><b>Phase 1 — Foundation</b><br><small>Repository, project setup, database, authentication, user roles, design system, responsive framework.</small></div>
+<div class="phase"><b>Phase 2 — Learning</b><br><small>Schools, programs, courses, modules, lessons, video, progress.</small></div>
+<div class="phase"><b>Phase 3 — Assessment</b><br><small>Quiz, assignment, exam, grading.</small></div>
+<div class="phase"><b>Phase 4 — Commerce</b><br><small>Checkout, orders, payment (Chapa), coupons, refund.</small></div>
+<div class="phase"><b>Phase 5 — Certification</b><br><small>Certificate generation, QR, verification.</small></div>
+<div class="phase"><b>Phase 6 — Membership</b><br><small>Plans, subscription, access control, renewal.</small></div>
+<div class="phase"><b>Phase 7 — Instructor</b><br><small>Application, dashboard, course creator, earnings, payout.</small></div>
+<div class="phase"><b>Phase 8 — Admin</b><br><small>CMS, users, finance, reports, moderation.</small></div>
+<div class="phase"><b>Phase 9 — Community + Career</b><br><small>Community, professional profile, opportunities, alumni.</small></div>
+<div class="phase"><b>Phase 10 — Corporate</b><br><small>Company accounts, employee management, training, reports.</small></div>
+<h3 style="margin-top:32px">Next: Developer Master Spec</h3>
+<p class="small">Frontend (routes, components, state, auth) · Backend (API, business logic, permissions) · Database (tables, keys, relations) · Payment (Chapa, webhook, refund) · Certificate (PDF, QR, verification API) · Instructor revenue and payout · Affiliate attribution · Admin audit log · Deployment (staging, production, SSL, backups, monitoring).</p>
+</section>
+
+<footer>INA-LWA Design System · Qopheessaa: Ibsan Naaji · Learn • Build • Apply • Grow</footer>
+
+<script>
+(function(){
+var r=document.documentElement,b=document.getElementById('theme'),m=['auto','light','dark'],i=0;
+b.onclick=function(){i=(i+1)%3;if(m[i]==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',m[i]);b.textContent=['Auto','Light','Dark'][i]};
+var t=['Practical financial skills for everyday decisions: budgeting, saving, and building income.','12 lessons across 3 modules, a project, and a final assessment.','Taught by an INA-LWA instructor with real-world experience.','Student reviews appear here after enrollment.','Common questions about access, payment, and certificates.'];
+var bt=document.querySelectorAll('#tabs button');
+bt.forEach(function(x,k){x.onclick=function(){bt.forEach(function(y){y.setAttribute('aria-selected','false')});x.setAttribute('aria-selected','true');document.getElementById('tabbody').textContent=t[k]}});
+})();
+</script>
+</body>
+</html>
